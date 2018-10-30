@@ -1,0 +1,83 @@
+<div class="user-container">
+  <mat-accordion multi="false">
+    <mat-expansion-panel *ngFor="let user of users" class="user-table" hideToggle="true" (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false">
+      <mat-expansion-panel-header class="user-header" fxLayout="row">
+        <div fxFlex="5%">
+          <mat-icon *ngIf="!panelOpenState" class="arrow">keyboard_arrow_right</mat-icon>
+          <mat-icon *ngIf="panelOpenState" class="arrow">keyboard_arrow_down</mat-icon>
+        </div>
+        <div class="label" fxFlex="20%">
+          {{user.firstName + " " + user.lastName}}
+        </div>
+        <div class="label" fxFlex="8%">
+          {{user.role}}
+        </div>
+        <div class="center" fxFlex="25%">
+          {{user.dateCreated}}
+        </div>
+        <div class="center" fxFlex="25%">
+          {{user.dateUpdated}}
+        </div>
+        <div class="center" fxFlex="17%">
+          {{user.username}}
+        </div>
+      </mat-expansion-panel-header>
+      <div class="edit-box">
+        <div>
+
+          <mat-form-field class="edit-field name">
+            <input matInput placeholder="First Name" [value]="user.firstName">
+          </mat-form-field>
+
+          <mat-form-field class="edit-field name">
+            <input matInput placeholder="Last Name" [value]="user.lastName">
+          </mat-form-field>
+
+        </div>
+        <div>
+
+          <mat-form-field class="edit-field">
+            <input matInput placeholder="Username" [value]="user.username">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Role</mat-label>
+            <mat-select [(value)]="user.role">
+              <mat-option value="Admin">Admin</mat-option>
+              <mat-option value="User">Normal User</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+
+          <mat-form-field class="edit-field">
+            <input matInput placeholder="Phone" [value]="user.phone">
+          </mat-form-field>
+
+          <mat-form-field class="edit-field">
+            <input matInput placeholder="Address" [value]="user.address">
+          </mat-form-field>
+
+        </div>
+
+        <div>
+          <mat-form-field class="edit-field">
+            <input matInput placeholder="Email" [value]="user.email">
+          </mat-form-field>
+        </div>
+
+        <div class="buttons">
+          <button class="delete">Delete</button>
+          <button class="update">Update</button>
+        </div>
+      </div>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+
+
+  <div *ngIf="sub">hello</div>
+</div>

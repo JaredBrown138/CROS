@@ -1,0 +1,59 @@
+.user-container{
+    width: 100%;
+    max-width: 980px;
+    margin: auto;
+    margin-top: 40px;
+    background-color: rgb(224, 224, 224);
+    
+}
+.user-table{
+    width: 100%;
+    border: 0px solid white !important;
+    box-shadow: none !important;
+    background-color: rgb(245, 245, 245);
+}
+.edit-field{
+    display: inline-block;
+    width: 30%;
+    padding: 5px;
+    
+}
+.edit-box{
+    padding: 30px;
+    background-color: rgb(228, 228, 228);
+}
+.name{
+    display: inline-block;
+}
+.center{
+    text-align: center;
+}
+.arrow{
+    font-size: 30px;
+    text-align: left;
+    line-height: 15px;
+}
+.user-header{
+    padding-top: 15px;
+}
+.buttons{
+    width: 30%;
+    margin-left: 70%;
+}
+.buttons > button{
+    padding: 10px 15px 10px 15px;
+    width: 48%;
+    border-radius: 15px;
+    border: none !important;
+    cursor: pointer;
+}
+.update{
+    background-color: #3a4f74;
+    color: white;
+    margin-left: 10px;
+}
+
+.delete{
+    background-color: #d44242;
+    color: white;
+}

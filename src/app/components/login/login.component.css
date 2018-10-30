@@ -1,0 +1,56 @@
+.login-card{
+    width: 40%;
+    margin: auto;
+    margin-top: 40px;
+    background-color: rgb(247, 247, 247);
+    padding-bottom: 40px;
+}
+.card-title{
+    font-family: 'Viga', sans-serif;
+    width: 100%;
+    color: white;
+    padding: 20px 0px 20px 0px;
+    background-color: #d44242;
+    text-align: center;
+    font-size: 25px;
+}
+.login-fields{
+    width: 60%;
+    margin: auto;
+}
+.username{
+    display: block;
+    padding: 10px 0px 5px 0px;
+    max-width: 280px;
+    margin: auto;
+}
+.password{
+    display: block;
+    padding: 10px 0px 30px 0px;
+    max-width: 280px;
+    margin: auto;
+}
+.login-buttons{
+    margin-top: 50px;
+}
+.login{
+    display: block;
+    padding: 10px 0px 10px 0px;
+    background-color: rgb(247, 247, 247);
+    border: 2px solid #d44242;
+    color: #d44242;
+    border-radius: 20px;
+    width: 30%;
+    margin: auto;
+    cursor: pointer;
+}
+.forgot{
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    max-width: 280px;
+    margin: auto;
+    color: #3a4f74;
+    text-decoration: underline;
+}

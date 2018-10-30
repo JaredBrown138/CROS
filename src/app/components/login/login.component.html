@@ -1,0 +1,20 @@
+<div class="login-card">
+  <h1 class="card-title">LOGIN</h1>
+  <div class="login-fields">
+    <mat-form-field class="username">
+      <input matInput placeholder="Username" [(ngModel)]="username" pattern="">
+    </mat-form-field>
+    <mat-form-field class="password">
+      <input type="password" matInput placeholder="Password" [(ngModel)]="password" pattern="">
+    </mat-form-field>
+    <div class="other-options">
+      <p class="forgot">Forgot Password</p>
+    </div>
+    <div class="login-buttons">
+      <button (click)="login()" class="login">
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </div>
+  </div>
+
+</div>
