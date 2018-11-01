@@ -1,5 +1,6 @@
 .login-card{
-    width: 40%;
+    width: 100%;
+    max-width: 800px;
     margin: auto;
     margin-top: 40px;
     background-color: rgb(247, 247, 247);
@@ -54,3 +55,15 @@
     color: #3a4f74;
     text-decoration: underline;
 }
+@media only screen and (max-width: 800px){
+    .login-card{
+        width: 100%;
+        margin-top: 0px;
+    }
+    .card-title{
+        margin: 0px;
+        background-color: rgb(247, 247, 247);
+        color: #d44242;
+    }
+}
+

@@ -1,0 +1,79 @@
+<div class="panel-container">
+  <mat-accordion multi="true">
+
+    <mat-expansion-panel class="panel" [expanded]="true">
+      <mat-expansion-panel-header fxLayout="row">
+        <mat-panel-title fxFlex="33.33%">
+          Admin Functions
+        </mat-panel-title>
+        <mat-panel-description fxFlex="66.66%">
+          Complete Admin Related Tasks
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="action-container">
+        <div class="action-row">
+          <div routerLink="/users" class="action-item">
+            <div class="action-box">
+              <mat-icon class="action-logo">assignment_ind</mat-icon>
+              <h3 class="action-text">USERS</h3>
+            </div>
+          </div>
+          <div routerLink="/questions" class="action-item">
+            <div class="action-box">
+              <mat-icon class="action-logo">security</mat-icon>
+              <h3 class="action-text">Security Questions</h3>
+            </div>
+          </div>
+          <div class="action-item">
+            <div class="action-box">
+              <mat-icon class="action-logo">assignment_late</mat-icon>
+              <h3 class="action-text">Logs</h3>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+    </mat-expansion-panel>
+
+
+    <mat-expansion-panel class="panel" [expanded]="true">
+      <mat-expansion-panel-header fxLayout="row">
+        <mat-panel-title fxFlex="33.33%">
+          User Functions
+        </mat-panel-title>
+        <mat-panel-description fxFlex="66.66%">
+          Complete User Related Tasks
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="action-container">
+        <div class="action-row">
+          <div class="action-item">
+            <div class="action-box">
+              <mat-icon class="action-logo">shopping_cart</mat-icon>
+              <h3 class="action-text">Place Order</h3>
+            </div>
+          </div>
+          <div class="action-item">
+            <div class="action-box">
+              <mat-icon class="action-logo">view_quilt</mat-icon>
+              <h3 class="action-text">Invoices</h3>
+            </div>
+          </div>
+          <div class="action-item">
+            <div class="action-box">
+              <mat-icon class="action-logo">tablet</mat-icon>
+              <h3 class="action-text">CROS Console</h3>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
