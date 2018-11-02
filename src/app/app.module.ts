@@ -20,6 +20,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSelectModule } from '@angular/material/select';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ServerErrorComponent } from './components/server-error/server-error.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     LoginComponent,
     SecurityQuestionsComponent,
     UserManagementComponent,
-    DashboardComponent
+    DashboardComponent,
+    NotFoundComponent,
+    ServerErrorComponent
   ],
   imports: [
     BrowserModule,
