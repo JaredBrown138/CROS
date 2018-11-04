@@ -1,0 +1,45 @@
+.server-error-card{
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 40px;
+    background-color: white;
+    padding-bottom: 40px;
+}
+
+.dashboard{
+ 
+    padding: 10px 0px 10px 0px;
+    background-color: #d44242;
+    border: 2px solid white;
+    color: white;
+    border-radius: 10px;
+    margin: auto;
+    cursor: pointer;
+    font-family: 'Viga', sans-serif;
+    width: 20%;
+    text-align: center;
+    font-size: 30px;
+}
+
+.server-error-message{
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    background-color: white;
+    font-family: 'Viga', sans-serif;
+    color: #d44242;
+    padding: 20px 0px 20px 0px;
+    text-align: center;
+    font-size: 40px;
+}
+
+.server-error-button-message{
+    font-family: 'Viga', sans-serif;
+    width: 100%;
+    color: #d44242;
+    padding: 10px 0px 10px 0px;
+    background-color: white;
+    text-align: center;
+    font-size: 30px;
+}
