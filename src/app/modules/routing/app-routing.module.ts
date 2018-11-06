@@ -7,6 +7,10 @@ import { SecurityQuestionsComponent } from '../../components/security-questions/
 import { DashboardComponent } from '../../components/dashboard/dashboard.component';
 import { NotFoundComponent } from '../../components/not-found/not-found.component';
 import { ServerErrorComponent } from '../../components/server-error/server-error.component';
+import { RegisterComponent } from '../../components/register/register.component';
+import { PasswordResetComponent } from '../../components/password-reset/password-reset.component';
+import { AboutUsComponent } from '../../components/about-us/about-us.component';
+import { ContactComponent } from '../../components/contact/contact.component';
 
 
 const routes: Routes = [
@@ -15,6 +19,10 @@ const routes: Routes = [
   { path: 'users', component: UserManagementComponent },
   { path: 'questions', component: SecurityQuestionsComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'about', component: AboutUsComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'resetpassword', component: PasswordResetComponent },
   { path: '404', component: NotFoundComponent },
   { path: '500', component: ServerErrorComponent },
   { path: '**', redirectTo: '/404' },

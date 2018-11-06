@@ -1,0 +1,51 @@
+.contact-container{
+    max-width: 1100px;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    padding: 30px 30px 60px 30px;
+    margin: 0px auto 50px auto;
+    background-color: rgb(248, 248, 248);
+}
+.card-title{
+    font-family: 'Viga', sans-serif;
+    width: 100%;
+    color: white;
+    padding: 20px 30px 20px 30px;
+    background-color: #d44242;
+    text-align: center;
+    font-size: 25px;
+    max-width: 1100px;
+    margin: 50px auto auto auto;
+}
+.contact-info{
+    width: 80%;
+    margin: auto;
+    font-size: 20px;
+    background-color: rgb(240, 240, 240);
+    padding: 30px;
+}
+.contact-field{
+    display: block;
+    margin: 10px auto 10px auto;
+    width: 80%
+}
+.contact-form{
+    width: 80%;
+    padding: 20px 30px 25px 30px;
+    background-color: rgb(240, 240, 240);
+    margin: 30px auto auto auto;
+}
+.login-buttons{
+    margin-top: 50px;
+}
+.login{
+    display: block;
+    padding: 10px 0px 10px 0px;
+    background-color: rgb(247, 247, 247);
+    border: 2px solid #d44242;
+    color: #d44242;
+    border-radius: 20px;
+    width: 30%;
+    margin: auto;
+    cursor: pointer;
+}

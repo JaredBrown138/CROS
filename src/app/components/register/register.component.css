@@ -1,0 +1,96 @@
+.form-card{
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    background-color: rgb(247, 247, 247);
+    padding-bottom: 40px;
+    padding-top: 30px;
+}
+.username{
+    display: block;
+    max-width: 280px;
+    margin: auto;
+}
+.password{
+    display: block;
+    max-width: 280px;
+    margin: auto;
+}
+.login-buttons{
+    margin-top: 50px;
+}
+.login{
+    display: block;
+    background-color: rgb(247, 247, 247);
+    border: 2px solid #d44242;
+    color: #d44242;
+    border-radius: 20px;
+    width: 30%;
+    margin: auto;
+    cursor: pointer;
+}
+.card-title{
+    font-family: 'Viga', sans-serif;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    color: white;
+    padding: 20px 0px 20px 0px;
+    background-color: #d44242;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 50px;
+}
+.stepper{
+    max-width: 900px;
+    margin: auto;
+    margin-top: 20px;
+}
+.edit-box{
+    padding: 30px;
+    background-color: rgb(228, 228, 228);
+    width: 80%;
+    margin: auto auto 30px auto;
+}
+.name{
+    display: inline-block;
+}
+.edit-field{
+    display: inline-block;
+    width: 44%;
+    padding: 5px;
+    
+}
+.mat-progress-bar{
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+.application{
+    position: relative;
+    display: block;
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+    height: auto;
+}
+
+.created{
+    position: relative;
+    display: block;
+    max-width: 600px;
+    width: 50%;
+    margin: auto;
+    height: auto;
+}
+
+.no-padding{
+    padding: 0px !important;
+}
+.errors{
+    max-width: 280px;
+    margin: 20px auto 10px auto;
+    font-size: 13px;
+    color: red;
+    line-height: 20px;
+}

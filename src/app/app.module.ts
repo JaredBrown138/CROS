@@ -11,6 +11,8 @@ import { AppRoutingModule } from './modules/routing/app-routing.module';
 import { FormsModule } from '@angular/forms';
 
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -22,6 +24,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ServerErrorComponent } from './components/server-error/server-error.component';
+import { RegisterComponent } from './components/register/register.component';
+import { PasswordResetComponent } from './components/password-reset/password-reset.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +38,11 @@ import { ServerErrorComponent } from './components/server-error/server-error.com
     UserManagementComponent,
     DashboardComponent,
     NotFoundComponent,
-    ServerErrorComponent
+    ServerErrorComponent,
+    RegisterComponent,
+    PasswordResetComponent,
+    AboutUsComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +57,9 @@ import { ServerErrorComponent } from './components/server-error/server-error.com
     MatTableModule,
     MatTooltipModule,
     MatExpansionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatStepperModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,24 @@
+<h1 class="card-title">Contact Us</h1>
+<div class="contact-container">
+  <div class="contact-info">
+    Send us a message below or call (407) 557-9247 with any questions.
+    <br>
+    We will be happy to help or set up a service appointment!
+  </div>
+  <div class="contact-form">
+    <mat-form-field class="contact-field">
+      <input type="text" matInput placeholder="Name" [(ngModel)]="name" pattern="">
+    </mat-form-field>
+    <mat-form-field class="contact-field">
+      <input type="text" matInput placeholder="Email" [(ngModel)]="email" pattern="">
+    </mat-form-field>
+    <mat-form-field class="contact-field">
+      <textarea matInput maxlength="2000" placeholder="Message"></textarea>
+    </mat-form-field>
+    <div class="login-buttons">
+      <button (click)="login()" class="login">
+        <mat-icon>send</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

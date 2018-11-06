@@ -1,0 +1,25 @@
+.about-container{
+    max-width: 1100px;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    padding: 30px;
+    margin: 0px auto 50px auto;
+    background-color: rgb(248, 248, 248);
+}
+.about-image{
+    max-width: 500px;
+    height: auto;
+    float: right;
+    padding: 20px;
+}
+.card-title{
+    font-family: 'Viga', sans-serif;
+    width: 100%;
+    color: white;
+    padding: 20px 30px 20px 30px;
+    background-color: #d44242;
+    text-align: center;
+    font-size: 25px;
+    max-width: 1100px;
+    margin: 50px auto auto auto;
+}

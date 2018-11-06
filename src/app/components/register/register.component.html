@@ -1,0 +1,92 @@
+<div class="register-container">
+  <mat-horizontal-stepper class="stepper" labelPosition="bottom" [linear]="true" #stepper>
+    <mat-step label="Account Info" [stepControl]="steps[0]">
+      <h1 class="card-title">Account Info</h1>
+      <div class="form-card">
+        <mat-form-field class="username">
+          <input matInput placeholder="Username" [(ngModel)]="user.username" pattern="">
+        </mat-form-field>
+        <mat-form-field class="password">
+          <input type="password" matInput placeholder="Password" [(ngModel)]="user.password" pattern="">
+        </mat-form-field>
+        <mat-form-field class="password">
+          <input type="password" matInput placeholder="Confirm Password" [(ngModel)]="user.passwordConfirm" pattern="">
+        </mat-form-field>
+        <div [innerHTML]="firstStepErrors" class="errors">
+
+        </div>
+        <div class="login-buttons">
+          <button (click)="firstStep()" class="login">
+            <h3>Next</h3>
+          </button>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step label="Personal Info" [stepControl]="steps[1]">
+      <h1 class="card-title">Personal Info</h1>
+      <div class="form-card">
+        <div class="edit-box">
+          <div>
+
+            <mat-form-field class="edit-field name">
+              <input matInput placeholder="First Name" [(ngModel)]="user.firstName">
+            </mat-form-field>
+
+            <mat-form-field class="edit-field name">
+              <input matInput placeholder="Last Name" [(ngModel)]="user.lastName">
+            </mat-form-field>
+
+          </div>
+          <div>
+
+            <mat-form-field class="edit-field">
+              <input matInput placeholder="Phone" [(ngModel)]="user.phone">
+            </mat-form-field>
+
+            <mat-form-field class="edit-field">
+              <input matInput placeholder="Address" [(ngModel)]="user.address">
+            </mat-form-field>
+
+          </div>
+
+          <div>
+            <mat-form-field class="edit-field">
+              <input type="email" matInput placeholder="Email" [(ngModel)]="user.email">
+            </mat-form-field>
+          </div>
+
+
+        </div>
+        <div [innerHTML]="secondStepErrors" class="errors">
+
+        </div>
+        <button (click)="secondStep()" class="login">
+          <h3>Submit</h3>
+        </button>
+      </div>
+
+
+    </mat-step>
+    <mat-step label="Verification" [stepControl]="steps[2]">
+      <div *ngIf="submitting" class="undergoing-submission">
+        <h1 class="card-title">{{verifyHeader}}</h1>
+        <mat-progress-bar mode="indeterminate" (class)="loadingBar"></mat-progress-bar>
+        <div class="form-card no-padding">
+          <img class="application" src="assets/images/application.png">
+        </div>
+      </div>
+
+      <div *ngIf="!submitting" class="undergoing-submission">
+        <h1 class="card-title">{{verifyHeader}}</h1>
+        <div class="form-card">
+          <img class="created" src="assets/images/complete.png">
+          <button routerLink="/login" class="login">
+            <h3>Login</h3>
+          </button>
+        </div>
+
+      </div>
+
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
