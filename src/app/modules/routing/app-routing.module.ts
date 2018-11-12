@@ -11,6 +11,7 @@ import { RegisterComponent } from '../../components/register/register.component'
 import { PasswordResetComponent } from '../../components/password-reset/password-reset.component';
 import { AboutUsComponent } from '../../components/about-us/about-us.component';
 import { ContactComponent } from '../../components/contact/contact.component';
+import { HomepageComponent } from '../../components/homepage/homepage.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'resetpassword', component: PasswordResetComponent },
   { path: '404', component: NotFoundComponent },
   { path: '500', component: ServerErrorComponent },
+  { path: 'homepage', component: HomepageComponent },
   { path: '**', redirectTo: '/404' },
 
 ];

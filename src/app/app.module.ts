@@ -28,6 +28,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ContactComponent } from './components/contact/contact.component';
     RegisterComponent,
     PasswordResetComponent,
     AboutUsComponent,
-    ContactComponent
+    ContactComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,7 @@ import { ContactComponent } from './components/contact/contact.component';
     MatExpansionModule,
     MatSelectModule,
     MatStepperModule,
-    MatProgressBarModule
+    MatProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
