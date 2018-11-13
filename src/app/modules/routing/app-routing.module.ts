@@ -11,9 +11,11 @@ import { RegisterComponent } from '../../components/register/register.component'
 import { PasswordResetComponent } from '../../components/password-reset/password-reset.component';
 import { AboutUsComponent } from '../../components/about-us/about-us.component';
 import { ContactComponent } from '../../components/contact/contact.component';
+
 import { OrderComponent } from '../../components/order/order.component';
 import { LogComponent } from '../../components/log/log.component';
 import { StatsComponent } from '../../components/stats/stats.component';
+
 
 
 const routes: Routes = [

@@ -33,43 +33,46 @@ import { OrderComponent } from './components/order/order.component';
 import { LogComponent } from './components/log/log.component';
 import { StatsComponent } from './components/stats/stats.component';
 
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    LoginComponent,
-    SecurityQuestionsComponent,
-    UserManagementComponent,
-    DashboardComponent,
-    NotFoundComponent,
-    ServerErrorComponent,
-    RegisterComponent,
-    PasswordResetComponent,
-    AboutUsComponent,
-    ContactComponent,
-    OrderComponent,
-    LogComponent,
-    StatsComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MatCardModule,
-    MatInputModule,
-    BrowserAnimationsModule,
-    MatIconModule,
-    FormsModule,
-    FlexLayoutModule,
-    MatTooltipModule,
-    MatTableModule,
-    MatTooltipModule,
-    MatExpansionModule,
-    MatSelectModule,
-    MatStepperModule,
-    MatProgressBarModule,
-    ChartsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavbarComponent,
+        LoginComponent,
+        SecurityQuestionsComponent,
+        UserManagementComponent,
+        DashboardComponent,
+        NotFoundComponent,
+        ServerErrorComponent,
+        RegisterComponent,
+        PasswordResetComponent,
+        AboutUsComponent,
+        ContactComponent,
+        OrderComponent,
+        LogComponent,
+        StatsComponent
+
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        MatCardModule,
+        MatInputModule,
+        BrowserAnimationsModule,
+        MatIconModule,
+        FormsModule,
+        FlexLayoutModule,
+        MatTooltipModule,
+        MatTableModule,
+        MatTooltipModule,
+        MatExpansionModule,
+        MatSelectModule,
+        MatStepperModule,
+        MatProgressBarModule,
+        ChartsModule
+
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
