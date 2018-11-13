@@ -7,9 +7,7 @@
 table{
     width: 100%;
 }
-.delete-data, .delete-header{
-    text-align: center;
-}
+
 .delete{
     cursor: pointer;
     color: #d44242;
