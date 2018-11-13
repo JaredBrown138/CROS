@@ -32,6 +32,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { OrderComponent } from './components/order/order.component';
 import { LogComponent } from './components/log/log.component';
 import { StatsComponent } from './components/stats/stats.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { StatsComponent } from './components/stats/stats.component';
         ContactComponent,
         OrderComponent,
         LogComponent,
-        StatsComponent
+        StatsComponent,
+        HomepageComponent
 
     ],
     imports: [
