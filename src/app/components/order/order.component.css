@@ -1,0 +1,228 @@
+.item-container{
+    width: 95%;
+    max-width: 600px;
+    margin: auto 50px auto auto;
+    background-color: rgb(240, 240, 240);
+    height: 80vh;
+    margin-top: 40px;
+    display: block;
+    
+}
+.item-title{
+    top: 0px;
+    left: 0px;
+    background-color: #d44242;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+.cart-container{
+    height: 50vh !important;
+    background-color: rgb(218, 218, 218) !important;
+    margin: 40px auto auto 50px;
+    overflow-y: scroll;
+}
+.services-container{
+    width: 95%;
+    margin: 10px auto 0px auto;
+    height: 35vh;
+    position: relative;
+    overflow-y: scroll;
+   
+}
+.custom-container{
+    width: 94%;
+    margin: 20px auto 0px auto;
+}
+.custom-title{
+    background-color: #d44242;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    
+    
+}
+.custom-content{
+    background-color: rgb(218, 218, 218);
+    width: 100%;
+    height: 25vh;
+    padding-top: 20px; 
+    position: relative;
+}
+.total{
+    width: 95%;
+    max-width: 600px;
+    margin: 40px auto auto 50px;
+    background-color: rgb(240, 240, 240);
+    height: 7vh;
+    margin-top: 40px;
+    display: block;
+}
+.total-title{
+    display: inline-block;
+    line-height: 7vh;
+    margin-left: 20px;
+    color: rgb(102, 102, 102);
+}
+.total-price{
+    width: 80%;
+    text-align: right;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: 5px;
+    color: rgb(102, 102, 102);
+}
+.service-title-custom{
+    width: 80%;
+    margin: 0px auto 0px auto;
+    display: block;
+    color: white;
+    background-color: rgb(170, 170, 170);
+    border: none !important;
+    padding: 10px;
+}
+.service-desc{
+   width: 80%;
+    margin: 10px auto 0px auto;
+    display: block;
+    color: white;
+    background-color: rgb(170, 170, 170);
+    border: none !important;
+    padding: 10px;
+    height: 70px; 
+}
+.labor, .parts{
+    width: 18%;
+    display: inline-block;
+    padding: 10px;
+    margin: 20px 10px 10px 10px;
+    background-color: rgb(170, 170, 170);
+    color: white;
+    border: none !important;
+}
+.costs{
+    width: 86%;
+    margin: auto;
+}
+.add{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    color: white;
+    background-color: green;
+    border: none !important;
+    padding: 10px;
+    width: 90px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.service-item{
+    position: relative;
+    width: 90%;
+    height: 50px;
+    line-height: 50px;
+    margin: auto;
+}
+.service-title{
+    display: inline-block;
+    width: 70%;
+    font-size: 20px;
+
+}
+.add-service{
+    position: relative;
+    display: inline-block;
+    color: green;
+    border: 2px solid green !important;
+    padding: 5px;
+    font-size: 15px;
+    width: 30%;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.add-service:hover{
+    background-color: green;
+    color: white;
+    
+}
+.remove-service{
+    position: relative;
+    display: inline-block;
+    color: #d44242;
+    border: 2px solid #d44242 !important;
+    padding: 5px;
+    font-size: 15px;
+    width: 30%;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: rgb(218, 218, 218);
+}
+.remove-service:hover{
+    background-color: #d44242;
+    color: rgb(218, 218, 218);
+}
+
+.buttons{
+    width: 80%;
+    margin: 30px auto auto auto;
+    
+}
+.buttons > button{
+    width: 25%;
+    padding: 10px;
+    background-color: white;
+    border-radius: 40px !important;
+    cursor: pointer;
+    
+}
+.clear{
+    margin-right: 13%;
+    border: 2px solid #d44242;
+    color: #d44242;
+}
+.submit{
+    border: 2px solid green;
+    color: green;
+}
+.summary-card{
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 40px;
+    background-color: rgb(247, 247, 247);
+    padding-bottom: 40px;
+}
+.summary-title{
+    font-family: 'Viga', sans-serif;
+    width: 100%;
+    color: white;
+    padding: 20px 0px 20px 0px;
+    background-color: #d44242;
+    text-align: center;
+    font-size: 25px;
+}
+.summary-fields{
+    width: 60%;
+    margin: auto;
+}
+
+.summary-service{
+    position: relative;
+    display: inline-block;
+    color: #3a4f74;
+    border: 2px solid #3a4f74 !important;
+    padding: 5px;
+    font-size: 15px;
+    width: 30%;
+    border-radius: 20px;
+    background-color: rgb(218, 218, 218);
+}
+.summary-total{
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    background-color: rgb(240, 240, 240);
+    height: 7vh;
+    margin-top: 40px;
+    display: block; 
+}

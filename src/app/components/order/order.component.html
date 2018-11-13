@@ -1,0 +1,103 @@
+<mat-progress-bar *ngIf="submitting" mode="indeterminate"></mat-progress-bar>
+<div *ngIf="!submitted" fxLayout="row">
+  <div class="container" fxFlex="50%">
+    <div class="item-container">
+      <div class="item-title">
+        Available Services
+      </div>
+      <div class="services-container">
+
+        <div *ngFor="let item of services" class="service-item">
+          <div class="service-title">
+            {{item.text}}
+          </div>
+          <button (click)="addToCart(item)" class="add-service">
+            ${{item.price}}
+          </button>
+        </div>
+
+      </div>
+      <div class="custom-container">
+        <div class="custom-title">
+          Custom Services
+        </div>
+        <div class="custom-content">
+          <input type="text" class="service-title-custom" [(ngModel)]="customTitle" placeholder="Service Title" />
+          <textarea [(ngModel)]="customDesc" class="service-desc" placeholder="Service Description"></textarea>
+          <div class="costs">
+            <input [(ngModel)]="customLabor" class="labor" placeholder="Labor (hours)" />
+            <input [(ngModel)]="customParts" class="parts" placeholder="Parts" />
+          </div>
+          <button (click)="addCustom()" class="add">
+            <mat-icon>add</mat-icon>
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div fxFlex="50%">
+    <div class="item-container cart-container">
+      <div class="item-title">
+        Checkout Cart
+      </div>
+      <div class="cart-items">
+
+        <div *ngFor="let item of cart" class="service-item">
+          <div class="service-title">
+            {{item.text}}
+          </div>
+          <button (click)="removeFromCart(item.id)" class="remove-service">
+            ${{item.price}}
+          </button>
+        </div>
+
+
+      </div>
+
+    </div>
+    <div class="total">
+      <div class="total-title">
+        Total:
+      </div>
+      <div class="total-price">
+        ${{cartTotal}}
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button (click)="clear()" class="clear">
+        Clear
+      </button>
+      <button (click)="submit()" class="submit">
+        Submit
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="submitted">
+  <div class="summary-card">
+    <h1 class="summary-title">Invoice Summmary</h1>
+    <div class="summary-fields">
+      <div *ngFor="let item of cart" class="service-item">
+        <div class="service-title">
+          {{item.text}}
+        </div>
+        <button class="summary-service">
+          ${{item.price}}
+        </button>
+      </div>
+      <div class="summary-total">
+        <div class="total-title">
+          Total:
+        </div>
+        <div class="total-price">
+          ${{cartTotal}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

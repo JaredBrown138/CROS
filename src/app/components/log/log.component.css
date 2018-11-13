@@ -1,0 +1,30 @@
+.questions-container{
+    width: 100%;
+    max-width: 980px;
+    margin: auto;
+    margin-top: 40px;
+}
+table{
+    width: 100%;
+}
+.delete-data, .delete-header{
+    text-align: center;
+}
+.delete{
+    cursor: pointer;
+    color: #d44242;
+}
+.new{
+    margin-bottom: 30px;
+    width: 13%;
+    margin-left: 87%; 
+}
+.new-button{
+    background-color: #3a4f74;
+    border: none;
+    color: white;
+    border-radius: 15px;
+    font-size: 10px;
+    padding: 10px 25px 10px 25px;
+    cursor: pointer;
+}

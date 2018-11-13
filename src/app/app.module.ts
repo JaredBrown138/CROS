@@ -9,6 +9,7 @@ import { UserManagementComponent } from './components/user-management/user-manag
 
 import { AppRoutingModule } from './modules/routing/app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { ChartsModule } from 'ng2-charts';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -28,6 +29,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { OrderComponent } from './components/order/order.component';
+import { LogComponent } from './components/log/log.component';
+import { StatsComponent } from './components/stats/stats.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,10 @@ import { ContactComponent } from './components/contact/contact.component';
     RegisterComponent,
     PasswordResetComponent,
     AboutUsComponent,
-    ContactComponent
+    ContactComponent,
+    OrderComponent,
+    LogComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +66,8 @@ import { ContactComponent } from './components/contact/contact.component';
     MatExpansionModule,
     MatSelectModule,
     MatStepperModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,2 @@
+::1 - - [13/Nov/2018:03:37:44 +0000] "GET /api/dfs HTTP/1.1" 404 9 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36"
+::1 - - [13/Nov/2018:03:37:44 +0000] "GET /favicon.ico HTTP/1.1" 404 9 "http://localhost:3000/api/dfs" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36"

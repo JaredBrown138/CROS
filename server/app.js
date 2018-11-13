@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
+const rfs = require('rotating-file-stream');
 const createError = require('http-errors');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -7,6 +9,16 @@ const logger = require('./helpers/logger');
 const mongoose = require('mongoose');
 const config = require('./helpers/config');
 const apiCatalog = require('./routes/api-catalog');
+
+
+let logDirectory = path.join(__dirname, '../log');
+fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
+
+let accessLogStream = rfs('access.log', {
+  interval: '1d',
+  path: logDirectory
+});
+
 
 /**
  * MongoDB setup
@@ -40,7 +52,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: 'false' }));
 app.use(express.static(path.join(__dirname, '../dist/nodequiz')));
 app.use('/', express.static(path.join(__dirname, '../dist/nodequiz')));
-app.use(morgan('dev'));
+app.use(morgan('combined', { stream: accessLogStream }));
 
 // wires the homeController to localhost:3000/api
 app.use('/api', apiCatalog);
