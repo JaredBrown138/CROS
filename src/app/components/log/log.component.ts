@@ -6,11 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./log.component.css']
 })
 export class LogComponent implements OnInit {
-  displayedColumns = ['log', 'short', 'severity'];
-  questions: Array<object> = [
+  displayedColumns = ['time', 'address', 'status', 'info'];
+  logs: Array<object> = [
     {
-      question: "What was your first pet's name?",
-      dateCreated: "09/13/18"
+      time: "[13/Nov/2018:03:37:44 +0000]",
+      address: ":1",
+      status: "200",
+      info: "GET /api/test HTTP/1.1"
+    },
+    {
+      time: "[13/Nov/2018:03:36:15 +0000]",
+      address: ":1",
+      status: "404",
+      info: "GET /api/fdss HTTP/1.1"
+    },
+    {
+      time: "[13/Nov/2018:03:36:07 +0000]",
+      address: ":1",
+      status: "404",
+      info: "GET /api/fse HTTP/1.1"
     }
   ];
   constructor() { }
