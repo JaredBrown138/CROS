@@ -1,77 +1,76 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 <div class="user-container">
   <mat-accordion multi="false">
-    <mat-expansion-panel *ngFor="let user of users" class="user-table" hideToggle="true" (opened)="panelOpenState = true"
+    <mat-expansion-panel *ngFor="let user of users; let i = index" class="user-table" hideToggle="true" (opened)="panelOpenState = true"
       (closed)="panelOpenState = false">
       <mat-expansion-panel-header class="user-header" fxLayout="row">
-        <div fxFlex="5%">
-          <mat-icon *ngIf="!panelOpenState" class="arrow">keyboard_arrow_right</mat-icon>
-          <mat-icon *ngIf="panelOpenState" class="arrow">keyboard_arrow_down</mat-icon>
-        </div>
         <div class="label" fxFlex="20%">
-          {{user.firstName + " " + user.lastName}}
+          {{user.username}}
+
         </div>
         <div class="label" fxFlex="8%">
           {{user.role}}
         </div>
         <div class="center" fxFlex="25%">
-          {{user.dateCreated}}
+          {{dateClean(user.dateCreated)}}
         </div>
         <div class="center" fxFlex="25%">
-          {{user.dateUpdated}}
+          <i>{{dateClean(user.dateUpdated)}}</i>
         </div>
         <div class="center" fxFlex="17%">
-          {{user.username}}
+          {{user.fName + " " + user.lName}}
         </div>
       </mat-expansion-panel-header>
       <div class="edit-box">
         <div>
 
           <mat-form-field class="edit-field name">
-            <input matInput placeholder="First Name" [value]="user.firstName">
+            <input matInput placeholder="First Name" [(ngModel)]="users[i].fName">
           </mat-form-field>
 
           <mat-form-field class="edit-field name">
-            <input matInput placeholder="Last Name" [value]="user.lastName">
+            <input matInput placeholder="Last Name" [(ngModel)]="users[i].lName">
           </mat-form-field>
 
         </div>
         <div>
 
           <mat-form-field class="edit-field">
-            <input matInput placeholder="Username" [value]="user.username">
+            <input matInput placeholder="Username" disabled [(ngModel)]="users[i].username">
           </mat-form-field>
 
           <mat-form-field>
             <mat-label>Role</mat-label>
-            <mat-select [(value)]="user.role">
-              <mat-option value="Admin">Admin</mat-option>
-              <mat-option value="User">Normal User</mat-option>
+            <mat-select [(ngModel)]="users[i].role">
+              <mat-option value="admin">Admin</mat-option>
+              <mat-option value="user">Normal User</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
         <div>
 
           <mat-form-field class="edit-field">
-            <input matInput placeholder="Phone" [value]="user.phone">
+            <input matInput placeholder="Phone" [(ngModel)]="users[i].phone">
           </mat-form-field>
 
           <mat-form-field class="edit-field">
-            <input matInput placeholder="Address" [value]="user.address">
+            <input matInput placeholder="Address" [(ngModel)]="users[i].address">
           </mat-form-field>
 
         </div>
 
         <div>
           <mat-form-field class="edit-field">
-            <input matInput placeholder="Email" [value]="user.email">
+            <input matInput placeholder="Email" [(ngModel)]="users[i].email">
           </mat-form-field>
         </div>
 
         <div class="buttons">
-          <button class="delete">Delete</button>
-          <button class="update">Update</button>
+          <button (click)="delete(user.id)" class="delete">Delete</button>
+          <button (click)="update(user.id)" class="update">Update</button>
         </div>
       </div>
+
 
     </mat-expansion-panel>
   </mat-accordion>

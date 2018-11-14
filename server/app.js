@@ -65,11 +65,12 @@ app.use(function (req, res, next) {
 
 app.use(function (err, req, res, next) {
   logger.debug(err.message);
-
-  res.status(err.status || 500);
   logger.debug(err.status);
 
-  res.sendStatus(err.status);
+  res.locals.error = err;
+  var status = err.status || 500;
+  res.status(status);
+
 });
 
 module.exports = app;

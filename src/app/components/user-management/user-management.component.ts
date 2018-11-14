@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { APIService } from '../../services/api.service';
+import * as moment from 'moment';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-user-management',
@@ -8,33 +11,58 @@ import { Component, OnInit } from '@angular/core';
 export class UserManagementComponent implements OnInit {
   displayedColumns = ['name', 'username', 'created', 'updated', 'edit'];
   sub: boolean = false;
-  demoStatus: boolean = true;
-  demoUsers: Array<object> = [
-    {
-      firstName: "Jared",
-      lastName: "Brown",
-      role: "Admin",
-      username: "JaredB131",
-      dateCreated: "02/12/18",
-      dateUpdated: "09/28/18",
-      phone: "(555) 432-1234",
-      email: "jared@mail.com",
-      address: "123 Street, Omaha, NE 12345"
-    }
-  ];
-  users: Array<object> = [];
+  users: any = [];
+  loading: boolean = true;
 
-  constructor() {
-    if (this.demoStatus) {
-      this.users = this.demoUsers;
-    }
+  constructor(public api: APIService, public snackBar: MatSnackBar) {
+    api.getUsers().subscribe(
+      res => {
+        this.users = res;
+        console.log(this.users);
+        this.loading = false;
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   ngOnInit() {
   }
+
   edit() {
     this.sub = true;
     console.log("hello");
+  }
+
+  dateClean(date) {
+    return moment(date).fromNow();
+  }
+
+  delete(userId) {
+    console.log("Deleting User --> " + userId);
+    this.api.deleteUser(userId).subscribe(
+      res => {
+        if (res['completed']) {
+          this.users = this.users.filter(user => user.id != userId);
+          this.snackBar.open(res['message'], '', {
+            duration: 5000
+          });
+        } else {
+          this.snackBar.open(res['message'], '', {
+            duration: 5000
+          });
+        }
+      },
+      err => {
+
+      }
+    )
+  }
+
+  update(userId: string) {
+    let selected = this.users.filter(user => user.id == userId);
+    console.log(selected[0]);
   }
 
 }

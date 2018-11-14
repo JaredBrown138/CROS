@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { StorageService } from './services/storage.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cros';
+
+  constructor(public storage: StorageService) {
+    this.storage.restoreSession();
+  }
 }

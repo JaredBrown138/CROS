@@ -1,8 +1,8 @@
 <div class="panel-container">
   <mat-accordion multi="true">
 
-    <mat-expansion-panel class="panel" [expanded]="true">
-      <mat-expansion-panel-header fxLayout="row">
+    <mat-expansion-panel *ngIf="storage.getRole() == 'admin'" class="panel" [expanded]="true">
+      <mat-expansion-panel-header class="header" fxLayout="row">
         <mat-panel-title fxFlex="33.33%">
           Admin Functions
         </mat-panel-title>

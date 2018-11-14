@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatStepper } from '@angular/material';
+import { APIService } from '../../services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -18,8 +20,8 @@ export class RegisterComponent implements OnInit {
     "username": "",
     "password": "",
     "passwordConfirm": "",
-    "firstName": "",
-    "lastName": "",
+    "fName": "",
+    "lName": "",
     "phone": "",
     "address": "",
     "email": "",
@@ -27,7 +29,7 @@ export class RegisterComponent implements OnInit {
 
 
 
-  constructor() {
+  constructor(public router: Router, public api: APIService) {
     this.verifyHeader = "Verifying Details.."
   }
 
@@ -61,7 +63,7 @@ export class RegisterComponent implements OnInit {
 
     let pass = true;
     this.secondStepErrors = ""; //reset error output
-    if (this.user.firstName == "" || this.user.lastName == "") {
+    if (this.user.fName == "" || this.user.lName == "") {
       this.secondStepErrors = "Please Include Your Complete Name <br> ";
       pass = false;
     }
@@ -93,10 +95,15 @@ export class RegisterComponent implements OnInit {
   }
 
   submit() {
-    setTimeout(() => {
-      this.submitting = false;
-      this.verifyHeader = "Account Created!"
+    this.api.registerUser(this.user).subscribe((res) => {
 
-    }, 3000);
+      this.submitting = false;
+      this.verifyHeader = "Account Created!";
+
+    },
+      error => {
+        console.log(error);
+        this.router.navigateByUrl('500');
+      });
   }
 }

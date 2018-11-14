@@ -54,6 +54,9 @@
     color: white;
     margin-left: 10px;
 }
+.mat-expansion-panel-header{
+    padding-bottom: 10px !important;
+}
 
 .delete{
     background-color: #d44242;
