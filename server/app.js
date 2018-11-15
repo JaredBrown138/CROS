@@ -12,13 +12,13 @@ const apiCatalog = require('./routes/api-catalog');
 const morganFormat = ':date[iso]|:method|:url|:status|:remote-addr|:response-time|:user-agent';
 
 
-let logDirectory = path.join(__dirname, '../log');
-fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
+//let logDirectory = path.join(__dirname, '../log');
+//fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
 
-let accessLogStream = rfs('access.log', {
-  interval: '1d',
-  path: logDirectory
-});
+//let accessLogStream = rfs('access.log', {
+//interval: '1d',
+//path: logDirectory
+//});
 
 
 /**
@@ -54,7 +54,7 @@ app.use(bodyParser.urlencoded({ extended: 'false' }));
 app.use(express.static(path.join(__dirname, '../dist/nodequiz')));
 app.use('/', express.static(path.join(__dirname, '../dist/nodequiz')));
 
-//app.use(morgan(morganFormat, { stream: accessLogStream }));
+app.use(morgan(morganFormat)); //, { stream: accessLogStream }
 
 // wires the homeController to localhost:3000/api
 app.use('/api', apiCatalog);
