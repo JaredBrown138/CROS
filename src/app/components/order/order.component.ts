@@ -11,13 +11,13 @@ import { MatSnackBar } from '@angular/material';
 export class OrderComponent implements OnInit {
 
   services: Array<object> = [
-    { text: "Password Reset", price: "39.99", id: "pswd" },
-    { text: "Spyware Removal", price: "99.99", id: "spyw" },
-    { text: "RAM Upgrade", price: "129.99", id: "ram" },
-    { text: "Software Installation", price: "49.99", id: "sftw" },
-    { text: "Tune-up", price: "89.99", id: "tune" },
-    { text: "Keyboard Cleaning", price: "45.00", id: "keyc" },
-    { text: "Disk Clean-up", price: "149.99", id: "disc" }
+    { text: "Password Reset", price: "39.99", id: "pswd", type: 'password' },
+    { text: "Spyware Removal", price: "99.99", id: "spyw", type: 'spyware' },
+    { text: "RAM Upgrade", price: "129.99", id: "ram", type: 'ram' },
+    { text: "Software Installation", price: "49.99", id: "sftw", type: 'software' },
+    { text: "Tune-up", price: "89.99", id: "tune", type: 'tune' },
+    { text: "Keyboard Cleaning", price: "45.00", id: "keyc", type: 'keyboard' },
+    { text: "Disk Clean-up", price: "149.99", id: "disc", type: 'disk' }
   ];
 
   cart: Array<object> = [];
@@ -76,6 +76,7 @@ export class OrderComponent implements OnInit {
     let customObject = {};
     customObject['text'] = this.customTitle;
     customObject['desc'] = this.customDesc;
+    customObject['type'] = "custom";
     customObject['id'] = "custom-" + uuid();
     customObject['price'] = ((Number(this.customLabor) * 50) + Number(this.customParts)).toFixed(2);
     this.cart.push(customObject);
@@ -98,7 +99,7 @@ export class OrderComponent implements OnInit {
   submit() {
     if (confirm('Are you sure?')) {
       this.submitting = true;
-      let writeObject = { items: this.cart, total: this.tallyTotal() };
+      let writeObject = { items: this.cart, total: this.cartTotal };
       this.api.submitOrder(writeObject).subscribe(
         res => {
           this.submitting = false;
@@ -107,6 +108,7 @@ export class OrderComponent implements OnInit {
         err => {
           console.log(err);
           this.snackBar.open(err.error.message, '', {
+            panelClass: ['bad', 'snack'],
             duration: 5000
           });
           this.submitting = false;

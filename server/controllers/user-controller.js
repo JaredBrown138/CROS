@@ -37,11 +37,11 @@ exports.update = function (req, res) {
 
     User.getById(req.body.id, function (err, user) {
 
-        if (err) res.status(200).send({ "message": "Unable to update user!", completed: false });
+        if (err) res.status(403).send({ "message": "Unable to update user!", completed: false });
 
         if (req.userId == req.body.id) {
             if (req.body.role != 'admin') {
-                res.status(200).send({ "message": "Can't downgrade your own role!", completed: false });
+                res.status(403).send({ "message": "Can't downgrade your own role!", completed: false });
                 return;
             }
         }
@@ -106,10 +106,10 @@ exports.list = function (req, res) {
 
 exports.delete = function (req, res) {
     if (req.userId == req.params.id) {
-        res.status(200).send({ message: "Can't Delete Yourself", completed: false });
+        res.status(403).send({ message: "Can't Delete Yourself", completed: false });
     } else {
         User.deleteMany({ id: req.params.id }, function (err) {
-            if (err) res.status(200).send({ message: "Unable to Delete User", completed: false });
+            if (err) res.status(500).send({ message: "Unable to Delete User", completed: false });
             res.status(200).send({ message: "User Deleted", completed: true });
         })
     }

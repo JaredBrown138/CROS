@@ -30,6 +30,7 @@ export class ContactComponent implements OnInit {
     this.api.sendMessage(writeObject).subscribe(
       res => {
         this.snackBar.open(res['message'], '', {
+          panelClass: ['good', 'snack'],
           duration: 5000
         });
         this.name = "";
@@ -39,6 +40,7 @@ export class ContactComponent implements OnInit {
       },
       err => {
         this.snackBar.open(err.error['message'], '', {
+          panelClass: ['bad', 'snack'],
           duration: 5000
         });
       }

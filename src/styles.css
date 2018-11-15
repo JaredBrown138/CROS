@@ -6,3 +6,20 @@ body {
   width: 100%;
   margin: 0px !important;
 }
+
+.snack{
+  position: fixed !important;
+  bottom: 30px !important;
+  width: 20%;
+  left: 0px !important;
+  right: 0px !important;
+  margin: auto !important;
+  border-radius: 30px !important;
+}
+.good{
+  border-left: 30px solid green;
+}
+
+.bad{
+  border-left: 30px solid #d44242;
+}

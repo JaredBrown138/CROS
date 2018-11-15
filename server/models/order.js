@@ -6,7 +6,7 @@ var orderSchema = new mongoose.Schema({
     items: Array,
     createdById: String,
     dateCreated: String,
-    total: String
+    total: Number
 
 }
 

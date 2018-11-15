@@ -42,6 +42,7 @@ export class MessagesComponent implements OnInit {
       },
       err => {
         this.snackBar.open(err.error['message'], '', {
+          panelClass: ['bad', 'snack'],
           duration: 5000
         });
       }

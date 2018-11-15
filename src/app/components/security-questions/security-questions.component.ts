@@ -65,13 +65,15 @@ export class SecurityQuestionsComponent implements OnInit {
       res => {
         this.addToTable(res['question']);
         this.snackBar.open(res['message'], '', {
+          panelClass: ['good', 'snack'],
           duration: 5000
         });
         console.log(res);
 
       },
       err => {
-        this.snackBar.open(err['message'], '', {
+        this.snackBar.open(err.error['message'], '', {
+          panelClass: ['bad', 'snack'],
           duration: 5000
         });
       }
@@ -83,12 +85,14 @@ export class SecurityQuestionsComponent implements OnInit {
     this.api.deleteQuestion(questionId).subscribe(
       res => {
         this.snackBar.open(res['message'], '', {
+          panelClass: ['good', 'snack'],
           duration: 5000
         });
         this.questions = this.questions.filter(question => question.id != questionId);
       },
       err => {
-        this.snackBar.open(err['message'], '', {
+        this.snackBar.open(err.error['message'], '', {
+          panelClass: ['bad', 'snack'],
           duration: 5000
         });
       }

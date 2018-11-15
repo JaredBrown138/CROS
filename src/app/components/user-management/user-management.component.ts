@@ -46,16 +46,16 @@ export class UserManagementComponent implements OnInit {
         if (res['completed']) {
           this.users = this.users.filter(user => user.id != userId);
           this.snackBar.open(res['message'], '', {
-            duration: 5000
-          });
-        } else {
-          this.snackBar.open(res['message'], '', {
+            panelClass: ['good', 'snack'],
             duration: 5000
           });
         }
       },
       err => {
-
+        this.snackBar.open(err.error['message'], '', {
+          panelClass: ['bad', 'snack'],
+          duration: 5000
+        });
       }
     )
   }
@@ -76,20 +76,20 @@ export class UserManagementComponent implements OnInit {
       res => {
         if (res['completed']) {
           this.snackBar.open(res['message'], '', {
+            panelClass: ['good', 'snack'],
             duration: 5000
           });
           this.loading = false;
 
-        } else {
-          this.snackBar.open(res['message'], '', {
-            duration: 5000
-          });
-          this.loading = false;
         }
       },
       err => {
         console.log(err);
         this.loading = false;
+        this.snackBar.open(err.error['message'], '', {
+          panelClass: ['bad', 'snack'],
+          duration: 5000
+        });
       }
     )
     console.log(updateObject);
