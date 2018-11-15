@@ -226,3 +226,6 @@
 2018-11-15T15:48:51.180Z|DELETE|/api/questions/d6f18627-72aa-4148-98c0-b740cdc083eb|200|::ffff:127.0.0.1|73.626|Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0
 2018-11-15T15:48:57.429Z|GET|/api/logs|200|::ffff:127.0.0.1|40.162|Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0
 2018-11-15T15:49:02.140Z|GET|/api/messages|200|::ffff:127.0.0.1|73.697|Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0
+2018-11-15T17:35:04.122Z|GET|/api/messages|200|::ffff:127.0.0.1|95.460|Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0
+2018-11-15T17:35:06.032Z|GET|/api/users|200|::ffff:127.0.0.1|73.321|Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0
+2018-11-15T17:35:08.708Z|GET|/api/questions|200|::ffff:127.0.0.1|73.612|Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0
