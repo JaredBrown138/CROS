@@ -12,7 +12,8 @@ var userSchema = new mongoose.Schema({
   address: String,
   role: String,
   dateCreated: String,
-  dateUpdated: String
+  dateUpdated: String,
+  questions: Array
 
 }
 

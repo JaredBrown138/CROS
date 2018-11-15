@@ -1,5 +1,5 @@
 <div class="register-container">
-  <mat-horizontal-stepper class="stepper" labelPosition="bottom" [linear]="true" #stepper>
+  <mat-horizontal-stepper *ngIf="!ready" class="stepper" labelPosition="bottom" [linear]="true" #stepper>
     <mat-step label="Account Info" [stepControl]="steps[0]">
       <h1 class="card-title">Account Info</h1>
       <div class="form-card">
@@ -61,32 +61,92 @@
 
         </div>
         <button (click)="secondStep()" class="login">
+          <h3>Next</h3>
+        </button>
+      </div>
+
+
+    </mat-step>
+    <mat-step label="Security Questions" [stepControl]="steps[2]">
+      <h1 class="card-title">Security Questions</h1>
+      <div class="form-card">
+        <div class="edit-box">
+          <div>
+            <div class="question">
+              <mat-form-field class="question">
+                <mat-label>Security Question 1</mat-label>
+                <mat-select [(ngModel)]="questions[0]['q']">
+                  <mat-option *ngFor='let question of availableQuestions' [value]="question.question">{{question.question}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="question">
+              <mat-form-field class="question">
+                <input class="answer-field " matInput placeholder="Answer" [(ngModel)]="questions[0]['a']">
+              </mat-form-field>
+            </div>
+
+            <div class="question">
+              <mat-form-field class="question">
+                <mat-label>Security Question 2</mat-label>
+                <mat-select [(ngModel)]="questions[1]['q']">
+                  <mat-option *ngFor='let question of availableQuestions' [value]="question.question">{{question.question}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="question">
+              <mat-form-field class="question">
+                <input class="answer-field " matInput placeholder="Answer" [(ngModel)]="questions[1]['a']">
+              </mat-form-field>
+            </div>
+
+            <div class="question">
+              <mat-form-field class="question">
+                <mat-label>Security Question 3</mat-label>
+                <mat-select [(ngModel)]="questions[2]['q']">
+                  <mat-option *ngFor='let question of availableQuestions' [value]="question.question">{{question.question}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="question">
+              <mat-form-field class="question">
+                <input class="answer-field " matInput placeholder="Answer" [(ngModel)]="questions[2]['a']">
+              </mat-form-field>
+            </div>
+
+          </div>
+
+        </div>
+        <div [innerHTML]="thirdStepErrors" class="errors">
+
+        </div>
+        <button (click)="thirdStep()" class="login">
           <h3>Submit</h3>
         </button>
       </div>
 
 
     </mat-step>
-    <mat-step label="Verification" [stepControl]="steps[2]">
-      <div *ngIf="submitting" class="undergoing-submission">
-        <h1 class="card-title">{{verifyHeader}}</h1>
-        <mat-progress-bar mode="indeterminate" (class)="loadingBar"></mat-progress-bar>
-        <div class="form-card no-padding">
-          <img class="application" src="assets/images/application.png">
-        </div>
-      </div>
-
-      <div *ngIf="!submitting" class="undergoing-submission">
-        <h1 class="card-title">{{verifyHeader}}</h1>
-        <div class="form-card">
-          <img class="created" src="assets/images/complete.png">
-          <button routerLink="/login" class="login">
-            <h3>Login</h3>
-          </button>
-        </div>
-
-      </div>
-
-    </mat-step>
   </mat-horizontal-stepper>
+  <div *ngIf="ready">
+    <div *ngIf="submitting" class="undergoing-submission">
+      <h1 class="card-title">{{verifyHeader}}</h1>
+      <mat-progress-bar mode="indeterminate" (class)="loadingBar"></mat-progress-bar>
+      <div class="form-card no-padding">
+        <img class="application" src="assets/images/application.png">
+      </div>
+    </div>
+
+    <div *ngIf="!submitting" class="undergoing-submission">
+      <h1 class="card-title">{{verifyHeader}}</h1>
+      <div class="form-card">
+        <img class="created" src="assets/images/complete.png">
+        <button routerLink="/login" class="login">
+          <h3>Login</h3>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
 </div>

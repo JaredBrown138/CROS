@@ -7,7 +7,7 @@ exports.send = function (req, res) {
 
     var newMessage = new Message({
         id: uuidv4(),
-        message: req.body.items,
+        message: req.body.message,
         subject: req.body.subject,
         name: req.body.name,
         dateCreated: now,

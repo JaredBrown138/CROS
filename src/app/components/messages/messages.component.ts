@@ -21,7 +21,7 @@ export class MessagesComponent implements OnInit {
   read(message) {
     if (message['read']) {
       this.unreadMessages = this.unreadMessages.filter(msg => msg['id'] != message['id']);
-      this.readMessages.push(message);
+      this.readMessages.unshift(message);
     } else {
       this.api.markMessageRead({ id: message['id'] }).subscribe(
         res => {
@@ -38,7 +38,9 @@ export class MessagesComponent implements OnInit {
     this.api.getMessages().subscribe(
       res => {
         this.readMessages = res.filter(msg => msg['read'] == true);
+        this.readMessages.reverse();
         this.unreadMessages = res.filter(msg => msg['read'] == false);
+        console.log(this.readMessages);
       },
       err => {
         this.snackBar.open(err.error['message'], '', {

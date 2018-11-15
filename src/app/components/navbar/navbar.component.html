@@ -1,10 +1,18 @@
 <div class="navbar-container">
-  <div routerLink="/dashboard" class="logo-container">
+  <div routerLink="/dashboard" class="logo-container no-select">
     <h3>Bob's Computer Repair</h3>
   </div>
+  <div class="middle-bar">
+    <h2 routerLink="/home" class="middle-item no-select">Home</h2>
+    <h2 routerLink="/about" class="middle-item no-select">About Us</h2>
+    <h2 routerLink="/contact" class="middle-item no-select">Contact Us</h2>
+  </div>
   <div class="right-container">
-    <div class="menu-container">
-      <mat-icon class="menu-icon">dehaze</mat-icon>
+    <div *ngIf='storage.isLoggedIn' (click)="storage.logOut()" class="menu-container">
+      <mat-icon class="menu-icon">meeting_room</mat-icon>
+    </div>
+    <div *ngIf='storage.isLoggedIn == false || storage.isLoggedIn == undefined' routerLink='/login' class="menu-container">
+      <mat-icon class="menu-icon">account_circle</mat-icon>
     </div>
   </div>
 </div>

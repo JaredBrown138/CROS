@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatStepper } from '@angular/material';
 import { APIService } from '../../services/api.service';
+import { StorageService } from '../../services/storage.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +15,16 @@ export class RegisterComponent implements OnInit {
   verifyHeader: string;
   firstStepErrors: string;
   secondStepErrors: string;
-  steps: Array<boolean> = [false, false, false]
+  thirdStepErrors: string;
+  ready: boolean = false;
+  underway: boolean = true;
+  questions: Array<object> = [
+    { q: '', a: '' },
+    { q: '', a: '' },
+    { q: '', a: '' },
+  ];
+  availableQuestions: any = [];
+  steps: Array<boolean> = [false, false, false, false]
   submitting: boolean = true;
   user = {
     "username": "",
@@ -29,8 +39,17 @@ export class RegisterComponent implements OnInit {
 
 
 
-  constructor(public router: Router, public api: APIService) {
-    this.verifyHeader = "Verifying Details.."
+  constructor(public router: Router, public api: APIService, public storage: StorageService) {
+    this.verifyHeader = "Verifying Details..";
+    this.api.getQuestions().subscribe(
+      res => {
+        this.availableQuestions = res['questions'];
+      },
+      err => {
+        console.log(err);
+        this.router.navigateByUrl('500')
+      }
+    );
   }
 
   ngOnInit() {
@@ -85,8 +104,8 @@ export class RegisterComponent implements OnInit {
       if (!this.firstStep()) {
         this.stepper.previous();
       } else {
+        console.log('triggered');
         this.stepper.next();
-        this.submit();
       }
 
 
@@ -94,11 +113,20 @@ export class RegisterComponent implements OnInit {
     return pass;
   }
 
+  thirdStep() {
+    console.log(this.questions);
+    this.user['questions'] = this.questions;
+    this.ready = true;
+    this.stepper.next();
+    this.submit();
+  }
+
   submit() {
     this.api.registerUser(this.user).subscribe((res) => {
 
       this.submitting = false;
       this.verifyHeader = "Account Created!";
+      this.storage.logOut();
 
     },
       error => {

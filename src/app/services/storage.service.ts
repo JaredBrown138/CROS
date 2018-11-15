@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +8,9 @@ export class StorageService {
 
   username: string;
   role: string;
+  isLoggedIn: boolean = false;
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   saveSession(token: string, username: string, role: string) {
 
@@ -20,10 +21,12 @@ export class StorageService {
       token: token,
       expirationDate: expirationDate,
       username: username,
-      role: role
+      role: role,
+      isLoggedIn: true
     }
     this.username = username;
     this.role = role;
+    this.isLoggedIn = true;
 
     console.table(sessionObject);
 
@@ -36,13 +39,24 @@ export class StorageService {
     if (session != undefined) {
       this.username = session['username'];
       this.role = session['role'];
+      this.isLoggedIn = session['isLoggedIn']
     }
 
+  }
+
+  logOut() {
+    this.username = "";
+    this.role = "";
+    this.isLoggedIn = false;
+    localStorage.removeItem('session');
+    this.router.navigateByUrl('login')
   }
 
   getSession() {
     if (localStorage.length > 0) {
       return JSON.parse(localStorage.getItem('session'));
+    } else {
+      return undefined;
     }
   }
 
@@ -54,5 +68,8 @@ export class StorageService {
   getRole() {
     console.log(this.role);
     return this.role;
+  }
+  getUsername() {
+    return this.username;
   }
 }

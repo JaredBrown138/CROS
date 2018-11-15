@@ -20,13 +20,14 @@ router.delete('/users/:id', [checkToken, checkRole], user_controller.delete);
 router.put('/users', [checkToken, checkRole], user_controller.update);
 
 router.post('/questions', [checkToken, checkRole], question_controller.addQuestion);
-router.get('/questions', [checkToken, checkRole], question_controller.getQuestions);
+router.get('/questions', question_controller.getQuestions);
 router.delete('/questions/:id', [checkToken, checkRole], question_controller.delete);
 
-router.post('/orders', [checkToken, checkRole], order_controller.submit);
+router.post('/orders', [checkToken], order_controller.submit);
 router.get('/orders', [checkToken, checkRole], order_controller.list);
 router.get('/stats', [checkToken, checkRole], order_controller.stats);
 
+router.post('/users/reset', user_controller.reset);
 
 router.post('/messages', message_controller.send);
 router.get('/messages', [checkToken, checkRole], message_controller.list);

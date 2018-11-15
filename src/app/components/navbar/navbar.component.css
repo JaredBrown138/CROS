@@ -6,6 +6,8 @@
 .logo-container {
   padding: 0px 0px 0px 0px;
   cursor: pointer;
+  width: 15%;
+  display: inline-block;
 }
 .logo-container > h3 {
   font-family: 'Viga', sans-serif;
@@ -14,6 +16,7 @@
   font-weight: 50;
   margin-left: 20px;
   line-height: 25px;
+  width: 100%;
 }
 .right-container{
   position: absolute;
@@ -28,5 +31,18 @@
   line-height: 80px;
   font-size: 30px;
   color: white;
+  cursor: pointer;
+}
+.middle-bar{
+  display: inline-block;
+}
+h2{
+  font-family: 'Viga', sans-serif;
+  color: rgb(233, 233, 233);
+  font-size: 20px;
+  font-weight: 50;
+  margin-left: 40px;
+  line-height: 25px;
+  display: inline-block;
   cursor: pointer;
 }

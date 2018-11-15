@@ -17,24 +17,25 @@ import { LogComponent } from '../../components/log/log.component';
 import { StatsComponent } from '../../components/stats/stats.component';
 import { HomepageComponent } from '../../components/homepage/homepage.component';
 import { MessagesComponent } from '../../components/messages/messages.component';
+import { LoginGuard } from "./login.guard";
 
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: '', component: LoginComponent },
-  { path: 'users', component: UserManagementComponent },
-  { path: 'questions', component: SecurityQuestionsComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: '', component: HomepageComponent },
+  { path: 'users', component: UserManagementComponent, canActivate: [LoginGuard] },
+  { path: 'questions', component: SecurityQuestionsComponent, canActivate: [LoginGuard] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [LoginGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'about', component: AboutUsComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'resetpassword', component: PasswordResetComponent },
-  { path: 'order', component: OrderComponent },
-  { path: 'logs', component: LogComponent },
+  { path: 'order', component: OrderComponent, canActivate: [LoginGuard] },
+  { path: 'logs', component: LogComponent, canActivate: [LoginGuard] },
   { path: 'home', component: HomepageComponent },
-  { path: 'stats', component: StatsComponent },
-  { path: 'messages', component: MessagesComponent },
+  { path: 'stats', component: StatsComponent, canActivate: [LoginGuard] },
+  { path: 'messages', component: MessagesComponent, canActivate: [LoginGuard] },
   { path: '404', component: NotFoundComponent },
   { path: '500', component: ServerErrorComponent },
   { path: '**', redirectTo: '/404' },

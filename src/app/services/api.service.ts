@@ -42,7 +42,7 @@ export class APIService {
   }
 
   getQuestions(): Observable<object> {
-    return this.http.request('get', this.urlPrefix + "questions", { headers: this.buildHeader() });
+    return this.http.request('get', this.urlPrefix + "questions");
   }
 
   deleteQuestion(questionId: string): Observable<object> {
@@ -69,8 +69,17 @@ export class APIService {
     return this.http.request('post', this.urlPrefix + "messages", { body: message });
   }
 
+  resetPassword(resetObject: object): Observable<object> {
+    return this.http.request('post', this.urlPrefix + "users/reset", { body: resetObject });
+  }
 
+  getLogs(): Observable<string> {
+    return this.http.get((this.urlPrefix + "logs"), { headers: this.buildHeader(), responseType: 'text' });
+  }
 
+  getStats(): Observable<object> {
+    return this.http.get((this.urlPrefix + "stats"), { headers: this.buildHeader() });
+  }
 
 
   buildHeader() {
@@ -81,9 +90,7 @@ export class APIService {
     });
   }
 
-  getLogs(): Observable<string> {
-    return this.http.get((this.urlPrefix + "logs"), { headers: this.buildHeader(), responseType: 'text' });
-  }
+
 
 
 

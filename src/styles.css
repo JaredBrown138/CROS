@@ -23,3 +23,8 @@ body {
 .bad{
   border-left: 30px solid #d44242;
 }
+.no-select{
+  -webkit-user-select: none; /* Chrome/Safari */        
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* IE10+ */
+}

@@ -20,7 +20,8 @@ exports.register = function (req, res) {
         phone: req.body.phone,
         role: 'user',
         dateCreated: now,
-        dateUpdated: now
+        dateUpdated: now,
+        questions: req.body.questions
     });
 
     User.register(userToRegister, (err, user) => {
@@ -59,7 +60,7 @@ exports.update = function (req, res) {
         });
 
         user.save(function (err, updatedUser) {
-            if (err) res.status(200).send({ "message": "Unable to update user!", completed: false });
+            if (err) return res.status(500).send({ "message": "Unable to update user!", completed: false });
             res.status(200).send({ "message": "User Successfully updated", completed: true });
 
         });
@@ -113,4 +114,42 @@ exports.delete = function (req, res) {
             res.status(200).send({ message: "User Deleted", completed: true });
         })
     }
+}
+
+exports.reset = function (req, res) {
+    User.getByUsername(req.body.username, function (err, user) {
+
+        if (err) return res.status(500).send({ message: 'Error on Server' });
+        let pass = [];
+        for (let x = 0; x < 3; x++) {
+            if (req.body.questions[x]['q'] == user.questions[x]['q']) {
+                if (req.body.questions[x]['a'] == user.questions[x]['a']) {
+                    pass[x] = true;
+                } else {
+                    return res.status(403).send({ message: 'Questions or Answers Incorrect' });
+                }
+            } else {
+                return res.status(403).send({ message: 'Questions or Answers Incorrect' });
+            }
+        }
+        if (req.body.password == undefined) {
+            return res.status(200).send({ message: 'Questions Correct' });
+        } else {
+
+            if (pass.length > 2) {
+                var pswdHash = bcrypt.hashSync(req.body.password, 8);
+                user.set({
+                    password: pswdHash,
+                });
+                user.save(function (err, updatedUser) {
+                    if (err) return res.status(200).send({ "message": "Unable to reset password", completed: false });
+                    return res.status(200).send({ "message": "Password successfully reset", completed: true });
+
+                });
+            }
+
+        }
+
+
+    });
 }
