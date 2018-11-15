@@ -45,7 +45,7 @@ export class StatsComponent implements OnInit {
   calcTotal(arr) {
     let total = 0;
     arr.forEach(element => {
-      if (element['quantity']) {
+      if (element['quantity'] != undefined) {
         total += element['quantity'];
       }
     });
