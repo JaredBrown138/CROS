@@ -16,6 +16,7 @@ import { OrderComponent } from '../../components/order/order.component';
 import { LogComponent } from '../../components/log/log.component';
 import { StatsComponent } from '../../components/stats/stats.component';
 import { HomepageComponent } from '../../components/homepage/homepage.component';
+import { MessagesComponent } from '../../components/messages/messages.component';
 
 
 
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'logs', component: LogComponent },
   { path: 'home', component: HomepageComponent },
   { path: 'stats', component: StatsComponent },
+  { path: 'messages', component: MessagesComponent },
   { path: '404', component: NotFoundComponent },
   { path: '500', component: ServerErrorComponent },
   { path: '**', redirectTo: '/404' },

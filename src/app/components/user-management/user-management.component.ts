@@ -61,8 +61,38 @@ export class UserManagementComponent implements OnInit {
   }
 
   update(userId: string) {
+    this.loading = true
     let selected = this.users.filter(user => user.id == userId);
-    console.log(selected[0]);
+    let updateObject = {
+      id: selected[0].id,
+      fName: selected[0].fName,
+      lName: selected[0].lName,
+      address: selected[0].address,
+      phone: selected[0].phone,
+      role: selected[0].role,
+      email: selected[0].email
+    }
+    this.api.updateUser(updateObject).subscribe(
+      res => {
+        if (res['completed']) {
+          this.snackBar.open(res['message'], '', {
+            duration: 5000
+          });
+          this.loading = false;
+
+        } else {
+          this.snackBar.open(res['message'], '', {
+            duration: 5000
+          });
+          this.loading = false;
+        }
+      },
+      err => {
+        console.log(err);
+        this.loading = false;
+      }
+    )
+    console.log(updateObject);
   }
 
 }

@@ -1,0 +1,102 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+<div class="messages-container">
+  <mat-accordion multi="false">
+    <div class="messages-title">Unread Messages</div>
+    <mat-expansion-panel *ngIf="unreadMessages.length < 1" class="message-table no-messages" hideToggle=" true">
+      <mat-expansion-panel-header class="message-header" fxLayout="row">
+        <div class="label" fxFlex="20%">
+          No Unread Messages
+        </div>
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel *ngFor="let message of unreadMessages" class="message-table" hideToggle="true">
+      <mat-expansion-panel-header (click)="read(message)" class="message-header" fxLayout="row">
+        <div class="label" fxFlex="20%">
+          {{message.email}}
+        </div>
+        <div class="label" fxFlex="60%">
+          {{message.subject}}
+        </div>
+        <div class="center" fxFlex="20%">
+          {{dateClean(message.dateCreated)}}
+        </div>
+      </mat-expansion-panel-header>
+      <div class="edit-box">
+        <div>
+
+          <div class="info-box info-row">
+            <span class="inner-title">Name:</span> {{message.name}}
+          </div>
+
+          <div class="info-box info-row">
+            <span class="inner-title">Email:</span> {{message.email}}
+          </div>
+
+          <div class="info-box subject">
+            <span class="inner-title">Subject:</span> {{message.subject}}
+          </div>
+
+          <div class="info-box message">
+            <div class="inner-title-message">Message:</div>
+            <div class="message-body">{{message.subject}}</div>
+          </div>
+
+        </div>
+
+        <div class="buttons">
+          <button (click)="delete(message.id)" class="delete">Delete</button>
+        </div>
+      </div>
+
+
+    </mat-expansion-panel>
+    <div class="messages-title">Read Messages</div>
+    <mat-expansion-panel *ngFor="let message of readMessages" class="message-table read" hideToggle="true">
+      <mat-expansion-panel-header class="message-header" fxLayout="row">
+        <div class="label" fxFlex="20%">
+          {{message.email}}
+        </div>
+        <div class="label" fxFlex="60%">
+          {{message.subject}}
+        </div>
+        <div class="center" fxFlex="20%">
+          {{dateClean(message.dateCreated)}}
+        </div>
+      </mat-expansion-panel-header>
+      <div class="edit-box">
+        <div>
+
+          <div class="info-box info-row">
+            <span class="inner-title">Name:</span> {{message.name}}
+          </div>
+
+          <div class="info-box info-row">
+            <span class="inner-title">Email:</span> {{message.email}}
+          </div>
+
+          <div class="info-box subject">
+            <span class="inner-title">Subject:</span> {{message.subject}}
+          </div>
+
+          <div class="info-box message">
+            <div class="inner-title-message">Message:</div>
+            <div class="message-body">{{message.subject}}</div>
+          </div>
+
+        </div>
+
+        <div class="buttons">
+          <button (click)="delete(message.id)" class="delete">Delete</button>
+        </div>
+      </div>
+
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+
+
+  <div *ngIf="sub">hello</div>
+</div>

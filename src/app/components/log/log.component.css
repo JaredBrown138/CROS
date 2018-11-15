@@ -1,6 +1,6 @@
 .questions-container{
     width: 100%;
-    max-width: 980px;
+    max-width: 1780px;
     margin: auto;
     margin-top: 40px;
 }
@@ -25,4 +25,13 @@ table{
     font-size: 10px;
     padding: 10px 25px 10px 25px;
     cursor: pointer;
+}
+.mat-header-cell, .mat-cell{
+    padding-left: 50px;
+}
+.center{
+    text-align: center;
+}
+.mat-cell{
+    overflow-x: scroll;
 }

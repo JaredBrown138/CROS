@@ -1,0 +1,90 @@
+.messages-container{
+    width: 100%;
+    max-width: 980px;
+    margin: auto;
+    margin-top: 40px;
+    background-color: rgb(224, 224, 224);
+    
+}
+.messages-title{
+    font-family: 'Roboto', sans-serif;
+    width: 100% !important;
+    padding: 20px 0px 20px 20px;
+    color: white;
+    font-size: 20px;
+    background-color: #d44242;
+    border-right: 1px solid #d44242 !important;
+    border-left: 1px solid #d44242 !important;
+}
+.message-table{
+    width: 100%;
+    border: 0px solid white !important;
+    box-shadow: none !important;
+    background-color: rgb(243, 243, 243);
+    padding: 0px 0px 0px 20px;
+    border-right: 1px solid rgb(243, 243, 243) !important;
+    border-left: 1px solid rgb(243, 243, 243) !important;
+
+}
+.info-box{
+    background-color: lightgray;
+    color: rgb(83, 83, 83);
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    padding: 9px;
+    width: 30%;
+    margin: 6px 0px 6px 0px;
+}
+.inner-title{
+    margin-right: 5px;
+    display: inline-block;
+}
+.info-row{
+    display: inline-block !important;
+    margin: 6px 10px 6px 0px !important;
+}
+.subject{
+    width: 63.1%;
+}
+.edit-box{
+    background-color: rgb(240, 240, 240);
+    padding: 30px;
+}
+.mat-expanded{
+    margin: 0px !important;
+}
+.buttons{
+    width: 30%;
+    margin-left: 70%;
+}
+.buttons > button{
+    padding: 10px 15px 10px 15px;
+    width: 95%;
+    border-radius: 15px;
+    border: none !important;
+    cursor: pointer;
+}
+.delete{
+    background-color: #d44242;
+    color: white;
+}
+.message{
+    position: relative;
+    top: 6px;
+    width: 100%;
+    min-height: 150px;
+    margin-bottom: 50px;
+
+}
+.message-body{
+    margin-top: 5px;
+}
+.center{
+    text-align: center;
+}
+.read{
+    background-color: white !important;
+    border-left: 1px solid rgb(233, 233, 233) !important;
+    border-right: 1px solid rgb(233, 233, 233) !important;
+    border-bottom: 1px solid rgb(233, 233, 233) !important;
+}

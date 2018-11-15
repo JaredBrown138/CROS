@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { v4 as uuid } from 'uuid';
+import { APIService } from '../../services/api.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-order',
@@ -30,7 +32,7 @@ export class OrderComponent implements OnInit {
 
   cartTotal: number = 0.00;
 
-  constructor() { }
+  constructor(public api: APIService, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -96,10 +98,20 @@ export class OrderComponent implements OnInit {
   submit() {
     if (confirm('Are you sure?')) {
       this.submitting = true;
-      setTimeout(x => {
-        this.submitted = true;
-        this.submitting = false;
-      }, 2000)
+      let writeObject = { items: this.cart, total: this.tallyTotal() };
+      this.api.submitOrder(writeObject).subscribe(
+        res => {
+          this.submitting = false;
+          this.submitted = true;
+        },
+        err => {
+          console.log(err);
+          this.snackBar.open(err.error.message, '', {
+            duration: 5000
+          });
+          this.submitting = false;
+        }
+      );
     }
   }
 

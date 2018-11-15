@@ -13,10 +13,13 @@
       <input type="text" matInput placeholder="Email" [(ngModel)]="email" pattern="">
     </mat-form-field>
     <mat-form-field class="contact-field">
-      <textarea matInput maxlength="2000" placeholder="Message"></textarea>
+      <input type="text" matInput placeholder="Subject" [(ngModel)]="subject" pattern="">
+    </mat-form-field>
+    <mat-form-field class="contact-field">
+      <textarea matInput [(ngModel)]="message" maxlength="2000" placeholder="Message"></textarea>
     </mat-form-field>
     <div class="login-buttons">
-      <button (click)="login()" class="login">
+      <button (click)="send()" class="login">
         <mat-icon>send</mat-icon>
       </button>
     </div>

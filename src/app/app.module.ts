@@ -19,6 +19,8 @@ import { OrderComponent } from './components/order/order.component';
 import { LogComponent } from './components/log/log.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { NewSecurityQuestionComponent } from './components/new-security-question/new-security-question.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 import { AppRoutingModule } from './modules/routing/app-routing.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -36,9 +38,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { APIService } from './services/api.service';
 import { StorageService } from './services/storage.service';
+
 
 
 @NgModule({
@@ -58,7 +62,9 @@ import { StorageService } from './services/storage.service';
         OrderComponent,
         LogComponent,
         StatsComponent,
-        HomepageComponent
+        HomepageComponent,
+        NewSecurityQuestionComponent,
+        MessagesComponent
 
     ],
     imports: [
@@ -80,13 +86,15 @@ import { StorageService } from './services/storage.service';
         ChartsModule,
         HttpClientModule,
         MatSnackBarModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatDialogModule
 
     ],
     providers: [
         APIService,
         StorageService
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    entryComponents: [NewSecurityQuestionComponent]
 })
 export class AppModule { }

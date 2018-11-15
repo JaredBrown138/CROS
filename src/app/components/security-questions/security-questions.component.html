@@ -1,5 +1,5 @@
 <div class="questions-container">
-  <div class="new"><button class="new-button">Add New</button></div>
+  <div class="new"><button (click)="createQuestion()" class="new-button">Add New</button></div>
   <table mat-table [dataSource]="questions" class="user-table">
 
     <ng-container matColumnDef="question">
