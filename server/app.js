@@ -12,13 +12,13 @@ const apiCatalog = require('./routes/api-catalog');
 const morganFormat = ':date[iso]|:method|:url|:status|:remote-addr|:response-time|:user-agent';
 
 
-//let logDirectory = path.join(__dirname, '../log');
-//fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
+let logDirectory = path.join(__dirname, '../log');
+fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
 
-//let accessLogStream = rfs('access.log', {
-//interval: '1d',
-//path: logDirectory
-//});
+let accessLogStream = rfs('access.log', {
+  interval: '1d',
+  path: logDirectory
+});
 
 
 /**
@@ -52,7 +52,7 @@ let app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: 'false' }));
 app.use(express.static(path.join(__dirname, '../dist/cros')));
-app.use('/', express.static(path.join(__dirname, '../dist/cros')));
+app.use('/', express.static(path.join(__dirname, '../dist/cros/index.html')));
 
 app.use(morgan(morganFormat)); //, { stream: accessLogStream }
 
