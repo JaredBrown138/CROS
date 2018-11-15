@@ -54,7 +54,7 @@ app.use(bodyParser.urlencoded({ extended: 'false' }));
 app.use(express.static(path.join(__dirname, '../dist/nodequiz')));
 app.use('/', express.static(path.join(__dirname, '../dist/nodequiz')));
 
-app.use(morgan(morganFormat, { stream: accessLogStream }));
+//app.use(morgan(morganFormat, { stream: accessLogStream }));
 
 // wires the homeController to localhost:3000/api
 app.use('/api', apiCatalog);
