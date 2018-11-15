@@ -52,9 +52,9 @@ let app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: 'false' }));
 app.use(express.static(path.join(__dirname, '../dist/cros')));
-app.use('/', express.static(path.join(__dirname, '../dist/cros/index.html')));
+app.use('/', express.static(path.join(__dirname, '../dist/cros/')));
 
-app.use(morgan(morganFormat)); //, { stream: accessLogStream }
+app.use(morgan(morganFormat, { stream: accessLogStream })); //, 
 
 // wires the homeController to localhost:3000/api
 app.use('/api', apiCatalog);
