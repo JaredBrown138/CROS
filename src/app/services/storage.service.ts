@@ -33,8 +33,11 @@ export class StorageService {
 
   restoreSession() {
     let session = this.getSession();
-    this.username = session['username'];
-    this.role = session['role'];
+    if (session != undefined) {
+      this.username = session['username'];
+      this.role = session['role'];
+    }
+
   }
 
   getSession() {
