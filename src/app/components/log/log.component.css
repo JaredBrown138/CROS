@@ -33,4 +33,5 @@ table{
     text-align: center;
 }
 .mat-cell{
+    overflow-x: hidden;
 }

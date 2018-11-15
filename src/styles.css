@@ -28,3 +28,9 @@ body {
 -moz-user-select: none; /* Firefox */
 -ms-user-select: none; /* IE10+ */
 }
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
