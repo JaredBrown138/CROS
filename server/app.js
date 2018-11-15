@@ -51,8 +51,8 @@ let app = express();
  */
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: 'false' }));
-app.use(express.static(path.join(__dirname, './dist/cros')));
-app.use('/', express.static(path.join(__dirname, './dist/cros')));
+app.use(express.static(path.join(__dirname, './distA/cros')));
+app.use('/', express.static(path.join(__dirname, './distA/cros')));
 
 app.use(morgan(morganFormat, { stream: accessLogStream })); //, 
 
