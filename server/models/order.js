@@ -19,8 +19,8 @@ module.exports.add = (order, callback) => {
 }
 
 module.exports.getById = (id, callback) => {
-    var query = { id: id };
-    Order.findOne(query, callback);
+    var query = { createdById: id };
+    Order.find(query, callback);
 };
 
 module.exports.getAll = (callback) => {

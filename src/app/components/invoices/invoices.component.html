@@ -1,0 +1,51 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+<div class="user-container">
+  <mat-accordion multi="false">
+    <mat-expansion-panel *ngFor="let invoice of invoices; let i = index" class="user-table" hideToggle="true" (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false">
+      <mat-expansion-panel-header class="user-header" fxLayout="row">
+        <div class="label" fxFlex="70%">
+          {{invoice.id}}
+
+        </div>
+        <div class="label" fxFlex="20%">
+          {{invoice.total}}
+        </div>
+        <div class="center" fxFlex="10%">
+          {{dateClean(invoice.dateCreated)}}
+        </div>
+      </mat-expansion-panel-header>
+      <div class="edit-box">
+        <div class="summary-card">
+          <h1 class="summary-title">Invoice Summmary</h1>
+          <div class="summary-fields">
+            <div *ngFor="let item of invoice.items" class="service-item">
+              <div class="service-title">
+                {{item.text}}
+              </div>
+              <button class="summary-service">
+                ${{item.price}}
+              </button>
+            </div>
+            <div class="summary-total">
+              <div class="total-title">
+                Total:
+              </div>
+              <div class="total-price">
+                ${{invoice.total}}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+
+
+
+</div>
+<div class="none" *ngIf="invoices.length == 0">No Invoices Available</div>

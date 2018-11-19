@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { APIService } from '../../services/api.service';
 import * as moment from 'moment';
+import { MatTable } from '@angular/material';
 
 @Component({
   selector: 'app-log',
@@ -8,15 +9,36 @@ import * as moment from 'moment';
   styleUrls: ['./log.component.css']
 })
 export class LogComponent implements OnInit {
+
+  @ViewChild(MatTable) table: MatTable<any>;
+
   order: number = 0; //0 Newest to oldest | 1 Oldest to newest
   displayedColumns = ['date', 'method', 'url', 'status', 'remote-addr', 'response-time', 'user-agent'];
   logs: Array<string> = [];
   loading: boolean = true;
+
+  oldToNew: boolean = false;
+  newToOld: boolean = true;
+
   constructor(public api: APIService) {
     this.retrieveLogs();
   }
   //const morganFormat = ':date[iso]|:method|:url|:status|:remote-addr|:response-time|:user-agent';
   ngOnInit() {
+  }
+
+  toggleSort() {
+    if (this.oldToNew) {
+      this.oldToNew = false;
+      this.newToOld = true;
+      this.logs.reverse();
+      this.table.renderRows();
+    } else {
+      this.oldToNew = true;
+      this.newToOld = false;
+      this.logs.reverse();
+      this.table.renderRows();
+    }
   }
 
   /**

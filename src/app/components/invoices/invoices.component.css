@@ -1,0 +1,108 @@
+.user-container{
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
+    margin-top: 40px;
+    background-color: rgb(224, 224, 224);
+    
+}
+.user-table{
+    width: 100%;
+    border: 0px solid white !important;
+    box-shadow: none !important;
+    background-color: rgb(245, 245, 245);
+}
+.edit-field{
+    display: inline-block;
+    width: 30%;
+    padding: 5px;
+    
+}
+.edit-box{
+    padding: 30px;
+    background-color: rgb(228, 228, 228);
+}
+.summary-card{
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 40px;
+    background-color: rgb(247, 247, 247);
+    padding-bottom: 40px;
+}
+.summary-title{
+    font-family: 'Viga', sans-serif;
+    width: 100%;
+    color: white;
+    padding: 20px 0px 20px 0px;
+    background-color: #d44242;
+    text-align: center;
+    font-size: 25px;
+}
+.summary-fields{
+    width: 60%;
+    margin: auto;
+}
+
+.summary-service{
+    position: relative;
+    display: inline-block;
+    color: #3a4f74;
+    border: 2px solid #3a4f74 !important;
+    padding: 5px;
+    font-size: 15px;
+    width: 30%;
+    border-radius: 20px;
+    background-color: rgb(218, 218, 218);
+}
+.summary-total{
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    background-color: rgb(240, 240, 240);
+    height: 7vh;
+    margin-top: 40px;
+    display: block; 
+}
+.total{
+    width: 95%;
+    max-width: 600px;
+    margin: 40px auto auto 50px;
+    background-color: rgb(240, 240, 240);
+    height: 7vh;
+    margin-top: 40px;
+    display: block;
+}
+.total-title{
+    display: inline-block;
+    line-height: 7vh;
+    margin-left: 20px;
+    color: rgb(102, 102, 102);
+}
+.total-price{
+    width: 80%;
+    text-align: right;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: 5px;
+    color: rgb(102, 102, 102);
+}
+.service-item{
+    position: relative;
+    width: 90%;
+    height: 50px;
+    line-height: 50px;
+    margin: auto;
+}
+.service-title{
+    display: inline-block;
+    width: 70%;
+    font-size: 20px;
+
+}
+.none{
+    width: 100%;
+    font-size: 25px;
+    color: gray;
+    text-align: center;
+}

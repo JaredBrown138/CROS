@@ -21,6 +21,7 @@ import { StatsComponent } from './components/stats/stats.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { NewSecurityQuestionComponent } from './components/new-security-question/new-security-question.component';
 import { MessagesComponent } from './components/messages/messages.component';
+import { InvoicesComponent } from './components/invoices/invoices.component';
 
 import { AppRoutingModule } from './modules/routing/app-routing.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -43,8 +44,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { APIService } from './services/api.service';
 import { StorageService } from './services/storage.service';
 
-
-
 @NgModule({
     declarations: [
         AppComponent,
@@ -64,7 +63,8 @@ import { StorageService } from './services/storage.service';
         StatsComponent,
         HomepageComponent,
         NewSecurityQuestionComponent,
-        MessagesComponent
+        MessagesComponent,
+        InvoicesComponent
 
     ],
     imports: [

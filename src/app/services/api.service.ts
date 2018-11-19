@@ -55,6 +55,10 @@ export class APIService {
     return this.http.request('get', this.urlPrefix + "orders", { headers: this.buildHeader() });
   }
 
+  getMyOrders(): Observable<object> {
+    return this.http.request('get', this.urlPrefix + "orders/me", { headers: this.buildHeader() });
+  }
+
   getMessages(): Observable<any> {
     return this.http.request('get', this.urlPrefix + "messages", { headers: this.buildHeader() });
   }

@@ -24,6 +24,18 @@ exports.submit = function (req, res) {
     });
 }
 
+exports.getByUserId = function (req, res) {
+
+    var id = req.userId;
+
+    Order.getById(id, (err, orders) => {
+
+        if (err) return res.status(500).send({ message: 'Error on Server' });
+
+        res.status(200).send(orders);
+
+    });
+}
 
 exports.list = function (req, res) {
 

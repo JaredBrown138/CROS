@@ -25,6 +25,8 @@ router.delete('/questions/:id', [checkToken, checkRole], question_controller.del
 
 router.post('/orders', [checkToken], order_controller.submit);
 router.get('/orders', [checkToken, checkRole], order_controller.list);
+router.get('/orders/me', checkToken, order_controller.getByUserId);
+
 router.get('/stats', [checkToken, checkRole], order_controller.stats);
 
 router.post('/users/reset', user_controller.reset);

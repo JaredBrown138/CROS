@@ -1,5 +1,7 @@
 <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 <div class="questions-container">
+  <button *ngIf="newToOld" (click)="toggleSort()" class="toggle">Sort Oldest to Newest</button>
+  <button *ngIf="oldToNew" (click)="toggleSort()" class="toggle">Sort Newest to Old</button>
   <table mat-table [dataSource]="logs" class="user-table">
 
     <ng-container matColumnDef="date">
