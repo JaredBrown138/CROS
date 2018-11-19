@@ -12,12 +12,19 @@ export class MessagesComponent implements OnInit {
 
   readMessages: any = [];
   unreadMessages: any = [];
+
   constructor(public api: APIService, public snackBar: MatSnackBar) {
     this.getMessages();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
+
+  /**
+   * Tells the serve a user has read a message and
+   * then adds the message to the read array in the
+   * front end.
+   * @param message 
+   */
   read(message) {
     if (message['read']) {
       this.unreadMessages = this.unreadMessages.filter(msg => msg['id'] != message['id']);
@@ -34,13 +41,16 @@ export class MessagesComponent implements OnInit {
 
     }
   }
+
+  /**
+   * Retrieves messages using the api service
+   */
   getMessages() {
     this.api.getMessages().subscribe(
       res => {
         this.readMessages = res.filter(msg => msg['read'] == true);
         this.readMessages.reverse();
         this.unreadMessages = res.filter(msg => msg['read'] == false);
-        console.log(this.readMessages);
       },
       err => {
         this.snackBar.open(err.error['message'], '', {
@@ -51,6 +61,10 @@ export class MessagesComponent implements OnInit {
     );
   }
 
+  /**
+   * Helper function which formats the date.
+   * @param date 
+   */
   dateClean(date) {
     return moment(date).fromNow();
   }

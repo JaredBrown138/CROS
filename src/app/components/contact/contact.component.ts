@@ -16,9 +16,11 @@ export class ContactComponent implements OnInit {
 
   constructor(public api: APIService, public snackBar: MatSnackBar) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
+  /**
+   * Send the message using the api service.
+   */
   send() {
     let writeObject = {
       name: this.name,
@@ -45,6 +47,7 @@ export class ContactComponent implements OnInit {
         });
       }
     );
+
   }
 
 }

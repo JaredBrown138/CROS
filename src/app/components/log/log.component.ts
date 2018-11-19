@@ -19,8 +19,10 @@ export class LogComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Retrieves logs from using the api service
+   */
   retrieveLogs() {
-    console.log("triggered");
     this.api.getLogs().subscribe(
       res => {
         this.loading = false;
@@ -33,6 +35,11 @@ export class LogComponent implements OnInit {
     );
   }
 
+  /**
+   * A funciton which formats the logs to ready them
+   * for display.
+   * @param logsArray 
+   */
   prepareLogs(logsArray) {
     let logToWrite = [];
     let logs = logsArray;
@@ -55,9 +62,12 @@ export class LogComponent implements OnInit {
 
     });
     this.logs = logs;
-    console.log(this.logs);
   }
 
+  /**
+   * Helper function which formats the date.
+   * @param date 
+   */
   dateClean(date) {
     return moment(date).fromNow();
   }

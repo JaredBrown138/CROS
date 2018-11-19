@@ -1,4 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { imports } from '../../services/util.imports';
+import { declarations } from '../../services/util.imports';
+import { providers } from '../../services/util.imports';
 
 import { UserManagementComponent } from './user-management.component';
 
@@ -8,9 +11,11 @@ describe('UserManagementComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserManagementComponent ]
+      declarations: [UserManagementComponent, declarations],
+      imports: [imports],
+      providers: [providers]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

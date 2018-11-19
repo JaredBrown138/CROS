@@ -24,16 +24,18 @@ export class StorageService {
       role: role,
       isLoggedIn: true
     }
+
     this.username = username;
     this.role = role;
     this.isLoggedIn = true;
-
-    console.table(sessionObject);
 
     localStorage.setItem('session', JSON.stringify(sessionObject));
 
   }
 
+  /**
+   * Looks into localStorage and sets in memory properties
+   */
   restoreSession() {
     let session = this.getSession();
     if (session != undefined) {
@@ -44,6 +46,10 @@ export class StorageService {
 
   }
 
+  /**
+   * Clears the in memory properties as well as
+   * well as the localStorage values.
+   */
   logOut() {
     this.username = "";
     this.role = "";
@@ -52,6 +58,9 @@ export class StorageService {
     this.router.navigateByUrl('login')
   }
 
+  /**
+   * Returns the session data from LocalStorage
+   */
   getSession() {
     if (localStorage.length > 0) {
       return JSON.parse(localStorage.getItem('session'));
@@ -60,15 +69,28 @@ export class StorageService {
     }
   }
 
+  /**
+   * Returns the x-access token from
+   * localStorage
+   */
   getToken() {
     let sessionObject = this.getSession();
+    if (sessionObject == undefined) {
+      return "no-token"
+    }
     return sessionObject['token'];
   }
 
+  /**
+   * A getter for the role property
+   */
   getRole() {
-    console.log(this.role);
     return this.role;
   }
+
+  /**
+   * A getter for the username property
+   */
   getUsername() {
     return this.username;
   }

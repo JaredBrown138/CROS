@@ -9,8 +9,8 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./user-management.component.css']
 })
 export class UserManagementComponent implements OnInit {
+
   displayedColumns = ['name', 'username', 'created', 'updated', 'edit'];
-  sub: boolean = false;
   users: any = [];
   loading: boolean = true;
 
@@ -18,7 +18,6 @@ export class UserManagementComponent implements OnInit {
     api.getUsers().subscribe(
       res => {
         this.users = res;
-        console.log(this.users);
         this.loading = false;
       },
       err => {
@@ -27,20 +26,22 @@ export class UserManagementComponent implements OnInit {
     );
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  edit() {
-    this.sub = true;
-    console.log("hello");
-  }
-
+  /**
+   * Format the date using moment.js
+   * @param date 
+   */
   dateClean(date) {
     return moment(date).fromNow();
   }
 
+  /**
+   * Delete the user using the API
+   * service.
+   * @param userId 
+   */
   delete(userId) {
-    console.log("Deleting User --> " + userId);
     this.api.deleteUser(userId).subscribe(
       res => {
         if (res['completed']) {
@@ -60,6 +61,10 @@ export class UserManagementComponent implements OnInit {
     )
   }
 
+  /**
+   * Update the user using the API service
+   * @param userId 
+   */
   update(userId: string) {
     this.loading = true
     let selected = this.users.filter(user => user.id == userId);
@@ -80,11 +85,9 @@ export class UserManagementComponent implements OnInit {
             duration: 5000
           });
           this.loading = false;
-
         }
       },
       err => {
-        console.log(err);
         this.loading = false;
         this.snackBar.open(err.error['message'], '', {
           panelClass: ['bad', 'snack'],
@@ -92,7 +95,6 @@ export class UserManagementComponent implements OnInit {
         });
       }
     )
-    console.log(updateObject);
   }
 
 }

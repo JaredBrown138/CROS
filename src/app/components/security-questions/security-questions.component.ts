@@ -35,7 +35,6 @@ export class SecurityQuestionsComponent implements OnInit {
   retrieveQuestions() {
     this.api.getQuestions().subscribe(
       res => {
-        console.log(res);
         this.questions = res['questions'];
       },
       err => {
@@ -60,7 +59,6 @@ export class SecurityQuestionsComponent implements OnInit {
   }
 
   addQuestion(question: object) {
-    console.log(question);
     this.api.addQuestion(question).subscribe(
       res => {
         this.addToTable(res['question']);
@@ -68,8 +66,6 @@ export class SecurityQuestionsComponent implements OnInit {
           panelClass: ['good', 'snack'],
           duration: 5000
         });
-        console.log(res);
-
       },
       err => {
         this.snackBar.open(err.error['message'], '', {
@@ -99,6 +95,10 @@ export class SecurityQuestionsComponent implements OnInit {
     )
   }
 
+  /**
+   * Adds the new question to the table in the front-end
+   * @param question 
+   */
   addToTable(question: object) {
     this.questions.push(question);
     this.table.renderRows()

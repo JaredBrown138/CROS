@@ -11,21 +11,27 @@ import { Router } from '@angular/router';
 })
 
 export class RegisterComponent implements OnInit {
+
   @ViewChild('stepper') stepper: MatStepper;
+
   verifyHeader: string;
   firstStepErrors: string;
   secondStepErrors: string;
   thirdStepErrors: string;
   ready: boolean = false;
   underway: boolean = true;
+  passwordRegex: RegExp = new RegExp("(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$");
+
   questions: Array<object> = [
     { q: '', a: '' },
     { q: '', a: '' },
     { q: '', a: '' },
   ];
+
   availableQuestions: any = [];
   steps: Array<boolean> = [false, false, false, false]
   submitting: boolean = true;
+
   user = {
     "username": "",
     "password": "",
@@ -36,8 +42,6 @@ export class RegisterComponent implements OnInit {
     "address": "",
     "email": "",
   }
-
-
 
   constructor(public router: Router, public api: APIService, public storage: StorageService) {
     this.verifyHeader = "Verifying Details..";
@@ -52,8 +56,8 @@ export class RegisterComponent implements OnInit {
     );
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
+
 
   firstStep() {
     let pass = true;
@@ -67,8 +71,13 @@ export class RegisterComponent implements OnInit {
       pass = false;
     }
     if (this.user.password != this.user.passwordConfirm) {
-      this.firstStepErrors = "Passwords do not match! <br> ";
+      this.firstStepErrors += "Passwords do not match! <br> ";
       pass = false;
+    }
+    if (!this.passwordRegex.exec(this.user.password)) {
+      this.firstStepErrors += "Password must be at least 8 characters in length " +
+        "and include at least one uppercase character and number!<br> ";
+      pass = false
     }
     if (pass) {
       this.steps[0] = true;
@@ -78,8 +87,8 @@ export class RegisterComponent implements OnInit {
     return pass;
 
   }
-  secondStep() {
 
+  secondStep() {
     let pass = true;
     this.secondStepErrors = ""; //reset error output
     if (this.user.fName == "" || this.user.lName == "") {
@@ -104,7 +113,6 @@ export class RegisterComponent implements OnInit {
       if (!this.firstStep()) {
         this.stepper.previous();
       } else {
-        console.log('triggered');
         this.stepper.next();
       }
 
@@ -114,7 +122,6 @@ export class RegisterComponent implements OnInit {
   }
 
   thirdStep() {
-    console.log(this.questions);
     this.user['questions'] = this.questions;
     this.ready = true;
     this.stepper.next();

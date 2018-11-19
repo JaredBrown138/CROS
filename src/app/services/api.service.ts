@@ -13,9 +13,7 @@ export class APIService {
   constructor(
     public http: HttpClient,
     public storage: StorageService,
-  ) {
-
-  }
+  ) { }
 
   registerUser(userObject: object): Observable<object> {
     return this.http.post((this.urlPrefix + "users"), userObject);
@@ -81,10 +79,12 @@ export class APIService {
     return this.http.get((this.urlPrefix + "stats"), { headers: this.buildHeader() });
   }
 
-
+  /**
+   * Gets the token from the storage service and adds
+   * it to a header object which is returned
+   */
   buildHeader() {
     let token = this.storage.getToken();
-    console.log("Token Used ---> " + token);
     return new HttpHeaders({
       "x-access-token": token
     });

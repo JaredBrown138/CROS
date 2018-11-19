@@ -29,18 +29,16 @@ export class OrderComponent implements OnInit {
   customDesc: String = "";
   customParts: String = "";
   customLabor: String = "";
-
   cartTotal: number = 0.00;
 
   constructor(public api: APIService, public snackBar: MatSnackBar) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
+
 
   addToCart(item) {
     this.cart.push(item);
     this.tallyTotal();
-    console.log(item);
   }
 
   tallyTotal() {
@@ -59,10 +57,8 @@ export class OrderComponent implements OnInit {
   }
 
   removeFromCart(id) {
-    console.log("removing");
     let removed = false;
     for (let x = 0; x < this.cart.length && removed == false; x++) {
-      console.log(this.cart[x]);
       if (this.cart[x]['id'] == id) {
         this.cart.splice(x, 1);
         removed = true;
@@ -72,6 +68,10 @@ export class OrderComponent implements OnInit {
     }
   }
 
+  /**
+   * Add a custom service to the 
+   * cart.
+   */
   addCustom() {
     let customObject = {};
     customObject['text'] = this.customTitle;
@@ -81,7 +81,6 @@ export class OrderComponent implements OnInit {
     customObject['price'] = ((Number(this.customLabor) * 50) + Number(this.customParts)).toFixed(2);
     this.cart.push(customObject);
     this.tallyTotal();
-    console.log(customObject);
   }
 
   clear() {

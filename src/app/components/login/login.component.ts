@@ -21,9 +21,12 @@ export class LoginComponent implements OnInit {
     public api: APIService
   ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
+  /**
+   * Uses the API service to login to 
+   * the application.
+   */
   login(): void {
 
     this.errorMessage = "";
@@ -37,6 +40,7 @@ export class LoginComponent implements OnInit {
       res => {
         if (res['auth']) {
           this.storage.saveSession(res['token'], res['username'], res['role']);
+          //Store user data and go to dashboard
           this.router.navigateByUrl('/dashboard');
         } else {
           this.errorMessage = res['message'];
